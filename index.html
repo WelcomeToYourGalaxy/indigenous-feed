@@ -80,7 +80,10 @@
 .ip-chip .ip-n { opacity: 0.6; margin-left: 0.3rem; font-variant-numeric: tabular-nums; }
 .ip-chip.empty { opacity: 0.4; }
 
-.ip-tr { display: flex; align-items: center; gap: 0.3rem; flex: 0 0 auto; }
+.ip-tr { display: flex; align-items: center; gap: 0.25rem; flex: 0 0 auto; position: sticky;
+    left: 62px; z-index: 2; background: linear-gradient(90deg, #131311 82%, transparent);
+    padding-right: 0.5rem; }
+.ip-trlabel { font-size: 0.53rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); }
 .ip-tr select { font-family: inherit; font-size: 0.62rem; color: var(--ink);
     background: rgba(255,255,255,0.05); border: 1px solid var(--line); border-radius: 999px;
     padding: 0.26rem 0.5rem; cursor: pointer; max-width: 150px; }
@@ -156,7 +159,6 @@
             <div class="ip-tools">
                 <input class="ip-search" id="ipSearch" type="search" placeholder="demarcation, consent, eviction, treaty…" aria-label="Filter headlines">
                 <button class="ip-btn" id="ipClear">Clear</button>
-                <span class="ip-tr"><label for="ipTr" class="ip-key" style="min-width:0">Translate</label><select id="ipTr" aria-label="Translate the feed"></select></span>
                 <button class="ip-btn" id="ipRefresh">Refresh</button>
             </div>
         </div>
@@ -165,10 +167,12 @@
         <div class="ip-filters">
             <div class="ip-row" id="ipTopicRow"><span class="ip-key">Subject</span></div>
             <div class="ip-row" id="ipGeoRow"><span class="ip-key">Region</span></div>
-            <div class="ip-row" id="ipRegionRow"><span class="ip-key">Standing</span></div>
+            <div class="ip-row" id="ipSubRow" style="display:none;"><span class="ip-key">Within</span></div>
+            <div class="ip-row" id="ipPlaceRow" style="display:none;"><span class="ip-key">Place</span></div>
+            <div class="ip-row" id="ipRegionRow"><span class="ip-key">Who reports it</span></div>
             <div class="ip-row" id="ipKindRow"><span class="ip-key">Direction</span></div>
             <div class="ip-row" id="ipEvidenceRow"><span class="ip-key">Evidence</span></div>
-            <div class="ip-row" id="ipLangRow"><span class="ip-key">Language</span></div>
+            <div class="ip-row" id="ipLangRow"><span class="ip-key">Language</span><span class="ip-tr"><label for="ipTr" class="ip-trlabel">Translate to</label><select id="ipTr" aria-label="Translate the feed"></select></span></div>
             <div class="ip-row" id="ipWhenRow"><span class="ip-key">Window</span></div>
         </div>
 
@@ -194,7 +198,15 @@
             already granted.
         </p>
         <p class="ip-note">
-            <strong>Standing.</strong> Wires are labelled by what kind of source they are. <em>Indigenous media
+            <strong>Region.</strong> Placement runs three levels deep. Pick a region and a second row opens with
+            its subregions; pick one of those and a third row lists the places inside it — Latin America to the
+            Amazon Basin to the Brazilian Amazon, Oceania to Australia to the Northern Territory, Europe to
+            Nordic and Arctic Europe to Sweden. Each row counts what it holds, so an empty subregion is visible
+            rather than hidden. A story naming a place files under the subregion and region above it too, and
+            each row is labelled with the most specific placement known for it.
+        </p>
+        <p class="ip-note">
+            <strong>Who reports it.</strong> Wires are labelled by what kind of source they are. <em>Indigenous media
             &amp; orgs</em> covers Indigenous-run outlets and Indigenous-led organisations — APTN, ICT News,
             National Indigenous Times, Cultural Survival, IWGIA, Amazon Watch — and can be read on its own,
             which is the point of labelling it. <em>Bodies &amp; courts</em> is UN mechanisms, rights bodies and
@@ -388,8 +400,8 @@ function trUrl(url, lang) {
 
 const state = { tl: 'off', items: [], topics: [], languages: {}, sources: [], generated: null,
                 geo: [], standings: [], kinds: [], docScore: 3, topic: 'all', standing: 'all',
-                place: 'all', kind: 'all', langs: new Set(), when: 'all', evidence: 'all',
-                query: '', shown: 50, loading: false };
+                place: 'all', sub: 'all', spot: 'all', kind: 'all', langs: new Set(),
+                when: 'all', evidence: 'all', query: '', shown: 50, loading: false };
 
 const $list = document.getElementById('ipList');
 const $status = document.getElementById('ipStatus');
@@ -400,6 +412,8 @@ const $standingRow = document.getElementById('ipRegionRow');
 const $evidenceRow = document.getElementById('ipEvidenceRow');
 const $kindRow = document.getElementById('ipKindRow');
 const $geoRow = document.getElementById('ipGeoRow');
+const $subRow = document.getElementById('ipSubRow');
+const $placeRow = document.getElementById('ipPlaceRow');
 const $langRow = document.getElementById('ipLangRow');
 const $whenRow = document.getElementById('ipWhenRow');
 const $search = document.getElementById('ipSearch');
@@ -421,13 +435,24 @@ function timeAgo(ts) {
     return d < 30 ? d + 'd ago' : new Date(ts).toISOString().slice(0, 10);
 }
 function langName(c) { return state.languages[c] || c; }
-function placeLabel(places) {
-    const named = places.filter(p => p !== 'unlocated');
-    if (!named.length) return 'unplaced';
-    return named.map(p => {
-        const g = state.geo.find(g => g.id === p);
-        return g ? g.label : p;
-    }).slice(0, 3).join(' · ');
+function placeLabel(item) {
+    // name the most specific thing known: the place, else the subregion, else the region
+    const spots = (item.spots || []).filter(p => p !== 'unlocated');
+    const subs = (item.subs || []).filter(p => p !== 'unlocated');
+    const regs = (item.places || []).filter(p => p !== 'unlocated');
+    const lookup = (id) => {
+        for (const r of state.geo) {
+            if (r.id === id) return r.label;
+            for (const sb of (r.subs || [])) {
+                if (sb.id === id) return sb.label;
+                for (const pl of (sb.places || [])) if (pl.id === id) return pl.label;
+            }
+        }
+        return id;
+    };
+    const pick = spots.length ? spots : (subs.length ? subs : regs);
+    if (!pick.length) return 'unplaced';
+    return pick.slice(0, 2).map(lookup).join(' · ');
 }
 function topicLabel(id) { const t = state.topics.find(t => t.id === id); return t ? t.label : id; }
 let lastStatus = '';
@@ -460,7 +485,8 @@ async function load() {
         title: i.t, link: i.u, outlet: i.o, lang: i.g, region: i.r,
         kind: i.k, ts: i.d, snippet: i.s, topics: i.x || ['climate'],
         score: i.p || 0, why: i.y || [], places: i.w || ['unlocated'],
-        standing: i.st || 'press', kinds: i.k || ['species']
+        standing: i.st || 'press', kinds: i.k || ['taken'],
+        subs: i.sr || ['unlocated'], spots: i.pl || ['unlocated']
     }));
     state.docScore = data.notable_score || 3;
     state.standings = data.standings || [];
@@ -506,6 +532,8 @@ function visible() {
         if (state.kind !== 'all' && i.kinds.indexOf(state.kind) === -1) return false;
         if (state.evidence === 'doc' && i.score < state.docScore) return false;
         if (state.place !== 'all' && i.places.indexOf(state.place) === -1) return false;
+        if (state.sub !== 'all' && i.subs.indexOf(state.sub) === -1) return false;
+        if (state.spot !== 'all' && i.spots.indexOf(state.spot) === -1) return false;
         if (state.langs.size && !state.langs.has(i.lang)) return false;
         if (!withinWindow(i)) return false;
         if (q && (i.title + ' ' + i.snippet + ' ' + i.outlet).toLowerCase().indexOf(q) === -1) return false;
@@ -542,7 +570,7 @@ function render() {
                     return '<span class="ip-standing" style="color:' + kc + ';border-color:' + kc + '55">' + esc(kl) + '</span>';
                 }).join('') +
                 '<span>' + esc(i.outlet) + '</span>' +
-                '<span>' + esc(placeLabel(i.places)) + '</span>' +
+                '<span>' + esc(placeLabel(i)) + '</span>' +
                 pips + (i.why.length ? '<span class="ip-why">' + esc(i.why.join(' · ')) + '</span>' : '') +
                 '<span>' + timeAgo(i.ts) + '</span>' +
                 (state.tl !== 'off' ? '<span class="ip-mt">machine translation</span>' : '') +
@@ -588,6 +616,7 @@ function buildChips() {
         const c = chip($geoRow, 'place', g.id, g.label);
         if (g.id === state.place) c.classList.add('on');
     });
+    buildDrilldown();
 
     chip($standingRow, 'standing', 'all', 'All').classList.add('on');
     state.standings.forEach(st => {
@@ -622,6 +651,38 @@ function buildChips() {
 
 }
 
+function buildDrilldown() {
+    [$subRow, $placeRow].forEach(r => r.querySelectorAll('.ip-chip').forEach(c => c.remove()));
+    const region = state.geo.find(g => g.id === state.place);
+    if (!region || !region.subs || !region.subs.length) {
+        $subRow.style.display = 'none';
+        $placeRow.style.display = 'none';
+        state.sub = 'all'; state.spot = 'all';
+        return;
+    }
+    $subRow.style.display = '';
+    const allSub = chip($subRow, 'sub', 'all', 'All of ' + region.label);
+    if (state.sub === 'all') allSub.classList.add('on');
+    region.subs.forEach(sb => {
+        const c = chip($subRow, 'sub', sb.id, sb.label);
+        if (sb.id === state.sub) c.classList.add('on');
+    });
+
+    const sub = region.subs.find(sb => sb.id === state.sub);
+    if (!sub || !sub.places || !sub.places.length) {
+        $placeRow.style.display = 'none';
+        state.spot = 'all';
+        return;
+    }
+    $placeRow.style.display = '';
+    const allSpot = chip($placeRow, 'spot', 'all', 'All of ' + sub.label);
+    if (state.spot === 'all') allSpot.classList.add('on');
+    sub.places.forEach(pl => {
+        const c = chip($placeRow, 'spot', pl.id, pl.label);
+        if (pl.id === state.spot) c.classList.add('on');
+    });
+}
+
 function chipCounts() {
     const q = state.query.toLowerCase();
     const base = state.items.filter(i =>
@@ -629,6 +690,22 @@ function chipCounts() {
     $topicRow.querySelectorAll('.ip-chip').forEach(c => {
         const id = c.dataset.topic;
         const n = id === 'all' ? base.length : base.filter(i => i.topics.indexOf(id) !== -1).length;
+        c.querySelector('.ip-n').textContent = n;
+        c.classList.toggle('empty', n === 0 && id !== 'all');
+    });
+    $subRow.querySelectorAll('.ip-chip').forEach(c => {
+        const id = c.dataset.sub;
+        const n = id === 'all'
+            ? base.filter(i => state.place === 'all' || i.places.indexOf(state.place) !== -1).length
+            : base.filter(i => i.subs.indexOf(id) !== -1).length;
+        c.querySelector('.ip-n').textContent = n;
+        c.classList.toggle('empty', n === 0 && id !== 'all');
+    });
+    $placeRow.querySelectorAll('.ip-chip').forEach(c => {
+        const id = c.dataset.spot;
+        const n = id === 'all'
+            ? base.filter(i => state.sub === 'all' || i.subs.indexOf(state.sub) !== -1).length
+            : base.filter(i => i.spots.indexOf(id) !== -1).length;
         c.querySelector('.ip-n').textContent = n;
         c.classList.toggle('empty', n === 0 && id !== 'all');
     });
@@ -690,7 +767,23 @@ single($topicRow, 'topic');
 single($standingRow, 'standing');
 single($evidenceRow, 'evidence');
 single($kindRow, 'kind');
-single($geoRow, 'place');
+$geoRow.addEventListener('click', e => {
+    const c = e.target.closest('.ip-chip'); if (!c) return;
+    state.place = c.dataset.place; state.sub = 'all'; state.spot = 'all'; state.shown = 50;
+    $geoRow.querySelectorAll('.ip-chip').forEach(x => x.classList.toggle('on', x === c));
+    buildDrilldown(); render();
+});
+$subRow.addEventListener('click', e => {
+    const c = e.target.closest('.ip-chip'); if (!c) return;
+    state.sub = c.dataset.sub; state.spot = 'all'; state.shown = 50;
+    buildDrilldown(); render();
+});
+$placeRow.addEventListener('click', e => {
+    const c = e.target.closest('.ip-chip'); if (!c) return;
+    state.spot = c.dataset.spot; state.shown = 50;
+    $placeRow.querySelectorAll('.ip-chip').forEach(x => x.classList.toggle('on', x === c));
+    render();
+});
 single($whenRow, 'when');
 
 $langRow.addEventListener('click', e => {
@@ -712,7 +805,7 @@ $langRow.addEventListener('click', e => {
 $refresh.addEventListener('click', load);
 document.getElementById('ipClear').addEventListener('click', () => {
     state.topic = 'all'; state.standing = 'all'; state.evidence = 'all'; state.place = 'all';
-    state.kind = 'all';
+    state.kind = 'all'; state.sub = 'all'; state.spot = 'all';
     state.langs.clear(); state.when = 'all';
     state.query = ''; state.shown = 50; $search.value = '';
     $topicRow.querySelectorAll('.ip-chip').forEach(c => c.classList.toggle('on', c.dataset.topic === 'all'));
@@ -720,6 +813,7 @@ document.getElementById('ipClear').addEventListener('click', () => {
     $evidenceRow.querySelectorAll('.ip-chip').forEach(c => c.classList.toggle('on', c.dataset.evidence === 'all'));
     $kindRow.querySelectorAll('.ip-chip').forEach(c => c.classList.toggle('on', c.dataset.kind === 'all'));
     $geoRow.querySelectorAll('.ip-chip').forEach(c => c.classList.toggle('on', c.dataset.place === 'all'));
+    buildDrilldown();
     $langRow.querySelectorAll('.ip-chip').forEach(c => c.classList.toggle('on', c.dataset.lang === 'all'));
     $whenRow.querySelectorAll('.ip-chip').forEach(c => c.classList.toggle('on', c.dataset.when === 'all'));
     render();

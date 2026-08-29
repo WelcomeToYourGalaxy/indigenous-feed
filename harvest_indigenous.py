@@ -221,104 +221,221 @@ def canon_url(url):
 
 
 # --------------------------------------------------------------------------
-# Where the story is.  This is the region the finding concerns, not the region
-# the wire was read from — a Japanese outlet reporting on the Amazon files
-# under Latin America.  A story with global scope files under Global, and one
-# can carry several: a study spanning Africa and South Asia files under both.
+# Where the story is, in three levels: region, subregion, place. A story naming
+# Peru files under Peru, the Andes and Latin America at once, so the page can
+# open a continent and drill into it rather than offering ten flat buckets.
 # --------------------------------------------------------------------------
-GEO = [
-    ("africa", "Africa", [
-        ("africa*", None), ("sahel", None), ("congo basin", None), ("nigeria*", None),
-        ("kenya*", None), ("ethiopia*", None), ("democratic republic of congo", None),
-        ("drc", None), ("ghana", None), ("tanzania*", None), ("uganda*", None),
-        ("south africa*", None), ("zimbabwe*", None), ("zambia*", None), ("mozambique", None),
-        ("angola*", None), ("senegal", None), ("mali", ["africa", "sahel", "bamako", "drought"]),
-        ("chad", ["lake", "africa", "sahel", "basin"]), ("sudan*", None), ("somalia*", None),
-        ("madagascar", None), ("cameroon", None), ("côte d'ivoire", None), ("ivory coast", None),
-        ("botswana", None), ("namibia", None), ("malawi", None), ("rwanda", None),
-        ("okavango", None), ("lake victoria", None), ("serengeti", None), ("kalahari", None),
-        ("horn of africa", None), ("afrique", None), ("áfrica", None), ("afrika", None),
-        ("非洲", None), ("アフリカ", None), ("африк*", None), ("أفريقيا", None), ("अफ्रीका", None),
-    ]),
-    ("mena", "Middle East & North Africa", [
-        ("middle east*", None), ("egypt*", None), ("morocco", None), ("algeria*", None),
-        ("tunisia*", None), ("libya*", None), ("saudi arabia", None), ("emirates", None),
-        ("qatar", None), ("kuwait", None), ("oman", None), ("yemen*", None), ("iraq*", None),
-        ("iran*", None), ("israel*", None), ("palestin*", None), ("gaza", None), ("jordan", None),
-        ("lebanon", None), ("syria*", None), ("turkey", ["drought", "climate", "pollution", "earthquake", "istanbul", "anatolia"]),
-        ("türkiye", None), ("persian gulf", None), ("red sea", None), ("euphrates", None),
-        ("tigris", None), ("dead sea", None), ("sahara", None), ("الشرق الأوسط", None),
-        ("中东", None), ("北アフリカ", None),
-    ]),
-    ("asia", "Asia", [
-        ("asia*", None), ("china", None), ("chinese", ["government", "province", "coal", "emissions", "cities"]),
-        ("japan*", None), ("korea*", None), ("india", None), ("indian", ["ocean", "government", "farmers", "cities", "monsoon", "state"]),
-        ("pakistan*", None), ("bangladesh*", None), ("nepal*", None), ("sri lanka", None),
-        ("indonesia*", None), ("vietnam*", None), ("thailand", None), ("philippines", None),
-        ("malaysia*", None), ("myanmar", None), ("cambodia*", None), ("laos", None),
-        ("mongolia*", None), ("kazakhstan", None), ("uzbekistan", None), ("central asia", None),
-        ("himalaya*", None), ("mekong", None), ("ganges", None), ("yangtze", None),
-        ("brahmaputra", None), ("tibet*", None), ("borneo", None), ("sumatra", None),
-        ("aral sea", None), ("gobi", None), ("siberia*", None), ("アジア", None), ("亚洲", None),
-        ("아시아", None), ("एशिया", None), ("азия", None),
-    ]),
-    ("europe", "Europe", [
-        ("europe*", ["union", "countries", "climate", "commission", "continent", "wide", "study", "across"]),
-        ("european union", None), ("european commission", None), ("brussels", None),
-        ("eu", ["deforestation", "regulation", "law", "directive", "commission", "member states",
-                "emissions", "green deal", "farm", "policy", "ban", "target"]),
-        ("united kingdom", None), ("britain", None), ("england", None),
-        ("scotland", None), ("wales", ["climate", "flood", "farm", "coast"]), ("ireland", None),
-        ("france", None), ("germany", None), ("spain", None), ("portugal", None), ("italy", None),
-        ("greece", None), ("netherlands", None), ("belgium", None), ("poland", None),
-        ("ukraine", None), ("russia*", None), ("sweden", None), ("norway", None), ("finland", None),
-        ("denmark", None), ("switzerland", None), ("austria", None), ("romania", None),
-        ("hungary", None), ("czech*", None), ("balkans", None), ("danube", None), ("alps", None),
-        ("mediterranean", None), ("baltic", None), ("北欧", None), ("欧洲", None), ("ヨーロッパ", None),
-        ("유럽", None), ("европ*", None), ("أوروبا", None),
-    ]),
-    ("latam", "Latin America & Caribbean", [
-        ("latin america*", None), ("south america*", None), ("central america*", None),
-        ("brazil*", None), ("brasil", None), ("amazon", None), ("amazônia", None), ("amazonía", None),
-        ("argentina", None), ("chile", None), ("peru", None), ("colombia*", None),
-        ("venezuela*", None), ("ecuador", None), ("bolivia*", None), ("paraguay", None),
-        ("uruguay", None), ("mexico", None), ("méxico", None), ("guatemala", None),
-        ("honduras", None), ("nicaragua", None), ("costa rica", None), ("panama", None),
-        ("cuba", None), ("haiti", None), ("dominican republic", None), ("caribbean", None),
-        ("patagonia", None), ("andes", None), ("cerrado", None), ("pantanal", None),
-        ("gran chaco", None), ("orinoco", None), ("américa latina", None), ("拉丁美洲", None),
-        ("ラテンアメリカ", None), ("латинская америка", None),
-    ]),
-    ("northam", "North America", [
-        ("united states", None), ("u.s.", None), ("usa", None), ("american", ["government", "cities", "states", "west", "farmers", "midwest", "coast"]),
-        ("canada", None), ("canadian", None), ("alaska*", None), ("california", None),
-        ("texas", None), ("florida", None), ("great lakes", None), ("colorado river", None),
-        ("mississippi", None), ("appalachia*", None), ("quebec", None), ("ontario", None),
-        ("british columbia", None), ("gulf of mexico", None), ("états-unis", None),
-        ("estados unidos", None), ("美国", None), ("加拿大", None), ("アメリカ合衆国", None),
-        ("미국", None), ("сша", None),
-    ]),
-    ("oceania", "Oceania", [
-        ("australia*", None), ("new zealand", None), ("aotearoa", None), ("papua", None),
-        ("pacific island*", None), ("fiji", None), ("samoa", None), ("tonga", None),
-        ("vanuatu", None), ("solomon islands", None), ("kiribati", None), ("tuvalu", None),
-        ("great barrier reef", None), ("tasmania*", None), ("murray-darling", None),
-        ("オセアニア", None), ("大洋洲", None), ("océanie", None),
-    ]),
-    ("polar", "Arctic & Antarctic", [
-        ("arctic", None), ("antarctic*", None), ("greenland", None), ("svalbard", None),
-        ("north pole", None), ("south pole", None), ("tundra", None), ("北極", None),
-        ("南極", None), ("арктик*", None), ("antártic*", None), ("arctique", None),
-    ]),
-    ("ocean", "Oceans & high seas", [
-        ("pacific ocean", None), ("atlantic ocean", None), ("indian ocean", None),
-        ("southern ocean", None), ("high seas", None), ("open ocean", None),
-        ("coral triangle", None), ("mariana", None), ("deep sea", None), ("north sea", None),
-        ("bering sea", None), ("south china sea", None), ("océan pacifique", None),
-        ("公海", None), ("深海", None),
-    ]),
+# region → subregion → country, with the terms that match each country.
+# Matching a country implies its subregion and its region, so a story naming
+# Peru files under Peru, South America and Latin America at once.
+GEO3 = [
+ ("africa", "Africa", [
+   ("africa-e", "East Africa", [
+     ("ke","Kenya",["kenya","kenyan","nairobi","ogiek","maasai","samburu","turkana"]),
+     ("tz","Tanzania",["tanzania","tanzanian","ngorongoro","hadza","serengeti"]),
+     ("ug","Uganda",["uganda","ugandan","batwa uganda","karamoja"]),
+     ("et","Ethiopia",["ethiopia","ethiopian","omo valley","oromia"]),
+     ("so","Somalia",["somalia","somali","somaliland"]),
+     ("rw","Rwanda",["rwanda","rwandan"]),
+     ("bi","Burundi",["burundi"]),
+     ("sd","Sudan",["sudan","sudanese","darfur"]),
+     ("ss","South Sudan",["south sudan","dinka","nuer"]),
+     ("mg","Madagascar",["madagascar","malagasy"]),
+     ("mz","Mozambique",["mozambique","cabo delgado"]),
+     ("zm","Zambia",["zambia","zambian"]),
+     ("zw","Zimbabwe",["zimbabwe","zimbabwean"]),
+     ("mw","Malawi",["malawi"]),
+   ]),
+   ("africa-w", "West Africa", [
+     ("ng","Nigeria",["nigeria","nigerian","ogoni","niger delta","ijaw"]),
+     ("gh","Ghana",["ghana","ghanaian"]),
+     ("ci","Côte d'Ivoire",["côte d'ivoire","ivory coast","ivorian"]),
+     ("sn","Senegal",["senegal","senegalese","casamance"]),
+     ("ml","Mali",["mali","malian","bamako","tuareg"]),
+     ("bf","Burkina Faso",["burkina faso"]),
+     ("ne","Niger",["niger republic","nigerien"]),
+     ("lr","Liberia",["liberia","liberian"]),
+     ("sl","Sierra Leone",["sierra leone"]),
+     ("gn","Guinea",["guinea conakry","guinean"]),
+     ("cm","Cameroon",["cameroon","cameroonian","baka"]),
+   ]),
+   ("africa-c", "Central Africa", [
+     ("cd","DR Congo",["democratic republic of congo","drc","congolese","kivu","batwa"]),
+     ("cg","Congo-Brazzaville",["republic of congo","brazzaville"]),
+     ("ga","Gabon",["gabon","gabonese"]),
+     ("cf","Central African Republic",["central african republic"]),
+     ("td","Chad",["chad","chadian"]),
+   ]),
+   ("africa-s", "Southern Africa", [
+     ("za","South Africa",["south africa","south african","khoisan","khoi","xolobeni"]),
+     ("bw","Botswana",["botswana","san people","central kalahari"]),
+     ("na","Namibia",["namibia","namibian","himba","ovahimba"]),
+     ("ao","Angola",["angola","angolan"]),
+     ("ls","Lesotho",["lesotho"]),
+   ]),
+   ("africa-n", "North Africa", [
+     ("ma","Morocco",["morocco","moroccan","amazigh","berber","western sahara","sahrawi"]),
+     ("dz","Algeria",["algeria","algerian","kabyle"]),
+     ("tn","Tunisia",["tunisia"]),
+     ("ly","Libya",["libya","libyan","tuareg libya"]),
+     ("eg","Egypt",["egypt","egyptian","nubian"]),
+   ]),
+ ]),
+ ("americas-n", "North America", [
+   ("na-us", "United States", [
+     ("us-ak","Alaska",["alaska","alaskan","inupiat","yupik","gwich'in"]),
+     ("us-sw","US Southwest",["navajo","diné","hopi","apache","arizona tribe","new mexico pueblo","tohono o'odham"]),
+     ("us-pl","US Plains & Midwest",["standing rock","lakota","dakota access","oglala","cheyenne river","ojibwe","anishinaabe"]),
+     ("us-pnw","US Pacific Northwest",["yakama","nez perce","puyallup","lummi","columbia river treaty","klamath"]),
+     ("us-e","US East & South",["cherokee","seminole","lumbee","penobscot","wampanoag","mashpee"]),
+     ("us-hi","Hawai'i",["native hawaiian","kanaka maoli","mauna kea","hawaii"]),
+   ]),
+   ("na-ca", "Canada", [
+     ("ca-bc","British Columbia",["british columbia","wet'suwet'en","haida","coastal gitxsan","secwepemc"]),
+     ("ca-pr","Prairies",["alberta","saskatchewan","manitoba","treaty 8","treaty 6"]),
+     ("ca-on","Ontario & Quebec",["ontario first nation","quebec","grassy narrows","innu","cree quebec","atikamekw"]),
+     ("ca-n","Northern Canada",["nunavut","northwest territories","yukon","inuit nunangat","dene"]),
+     ("ca-at","Atlantic Canada",["mi'kmaq","nova scotia","new brunswick","newfoundland","innu labrador"]),
+   ]),
+   ("na-mx", "Mexico", [
+     ("mx-s","Southern Mexico",["chiapas","oaxaca","zapatista","zapoteco","mixe","tren maya","yucatán","maya"]),
+     ("mx-n","Northern Mexico",["yaqui","rarámuri","tarahumara","sonora","chihuahua"]),
+   ]),
+ ]),
+ ("americas-s", "Latin America & Caribbean", [
+   ("la-amz", "Amazon Basin", [
+     ("br-amz","Brazilian Amazon",["yanomami","munduruku","kayapó","xingu","terra indígena","amazônia","rondônia","pará"]),
+     ("pe-amz","Peruvian Amazon",["loreto","ucayali","madre de dios","awajún","shipibo","kakataibo"]),
+     ("co-amz","Colombian Amazon",["amazonas colombia","putumayo","caquetá"]),
+     ("ec-amz","Ecuadorian Amazon",["yasuní","waorani","sarayaku","sucumbíos","achuar"]),
+     ("bo-amz","Bolivian Amazon",["tipnis","beni","chiquitano","bolivian amazon"]),
+     ("ve-amz","Venezuelan Amazon",["arco minero","amazonas venezuela","pemón"]),
+   ]),
+   ("la-and", "Andes & Southern Cone", [
+     ("cl","Chile",["chile","chilean","mapuche","araucanía","wallmapu"]),
+     ("ar","Argentina",["argentina","argentine","patagonia","qom","wichí"]),
+     ("pe","Peru",["peru","peruvian","quechua","aymara peru"]),
+     ("bo","Bolivia",["bolivia","bolivian","aymara","quechua bolivia"]),
+     ("py","Paraguay",["paraguay","ayoreo","chaco paraguayo"]),
+     ("uy","Uruguay",["uruguay"]),
+   ]),
+   ("la-ca", "Central America", [
+     ("gt","Guatemala",["guatemala","guatemalan","ixil","k'iche'","q'eqchi'"]),
+     ("hn","Honduras",["honduras","garífuna","lenca","berta cáceres"]),
+     ("ni","Nicaragua",["nicaragua","miskito","bosawás"]),
+     ("cr","Costa Rica",["costa rica","bribri","térraba"]),
+     ("pa","Panama",["panama","guna","ngäbe","emberá"]),
+     ("bz","Belize",["belize","maya belize"]),
+     ("sv","El Salvador",["el salvador"]),
+   ]),
+   ("la-car", "Caribbean & Guianas", [
+     ("gy","Guyana",["guyana","wapichan","rupununi"]),
+     ("sr","Suriname",["suriname","saamaka","maroon suriname","kaliña"]),
+     ("gf","French Guiana",["guyane","french guiana","wayana"]),
+     ("do","Caribbean islands",["dominica kalinago","caribbean indigenous","taino","haiti","jamaica","puerto rico"]),
+   ]),
+   ("la-br", "Brazil (other)", [
+     ("br-ne","Brazil northeast & cerrado",["cerrado","bahia indígena","maranhão","quilombola","pataxó","guarani-kaiowá","mato grosso do sul"]),
+   ]),
+ ]),
+ ("asia-s", "South Asia", [
+   ("sa-in", "India", [
+     ("in-c","Central India",["chhattisgarh","jharkhand","odisha","madhya pradesh","hasdeo","niyamgiri","bastar"]),
+     ("in-ne","Northeast India",["assam","manipur","nagaland","mizoram","meghalaya","arunachal"]),
+     ("in-s","South & West India",["kerala adivasi","tamil nadu tribal","karnataka tribal","gujarat adivasi","maharashtra adivasi"]),
+     ("in-h","Himalayan India",["ladakh","uttarakhand","himachal","sikkim"]),
+   ]),
+   ("sa-oth", "Rest of South Asia", [
+     ("bd","Bangladesh",["bangladesh","chittagong hill tracts","jumma","chakma"]),
+     ("np","Nepal",["nepal","tharu","newar","chepang"]),
+     ("pk","Pakistan",["pakistan","balochistan","kalash"]),
+     ("lk","Sri Lanka",["sri lanka","vedda"]),
+     ("bt","Bhutan",["bhutan"]),
+   ]),
+ ]),
+ ("asia-se", "Southeast Asia", [
+   ("se-mar", "Maritime Southeast Asia", [
+     ("id","Indonesia",["indonesia","indonesian","masyarakat adat","papua","west papua","kalimantan","dayak","sulawesi","sumatra","mentawai"]),
+     ("ph","Philippines",["philippines","filipino","lumad","igorot","mindanao","cordillera","ancestral domain"]),
+     ("my","Malaysia",["malaysia","sarawak","sabah","penan","orang asli","bakun"]),
+     ("tl","Timor-Leste",["timor-leste","east timor"]),
+     ("pg-ind","Papua New Guinea",["papua new guinea","bougainville","porgera"]),
+   ]),
+   ("se-main", "Mainland Southeast Asia", [
+     ("th","Thailand",["thailand","karen thailand","bangkloi","chao lay","hill tribe"]),
+     ("mm","Myanmar",["myanmar","burma","karen state","kachin","chin state","rakhine"]),
+     ("vn","Vietnam",["vietnam","montagnard","central highlands vietnam"]),
+     ("kh","Cambodia",["cambodia","bunong","ratanakiri"]),
+     ("la","Laos",["laos","hmong laos"]),
+   ]),
+ ]),
+ ("asia-e", "East & Central Asia", [
+   ("ea-e", "East Asia", [
+     ("tw","Taiwan",["taiwan","原住民族","傳統領域","amis","atayal","bunun"]),
+     ("jp","Japan",["japan","ainu","hokkaido","okinawa","ryukyu"]),
+     ("cn","China",["china","tibet","tibetan","xinjiang","uyghur","inner mongolia","yunnan minority"]),
+     ("kr","Korea",["korea","korean"]),
+     ("mn","Mongolia",["mongolia","mongolian","dukha","tsaatan"]),
+   ]),
+   ("ea-c", "Central Asia & Siberia", [
+     ("ru-sib","Siberia & Russian North",["siberia","evenki","nenets","khanty","yamal","sakha","chukotka","коренные малочисленные"]),
+     ("kz","Kazakhstan",["kazakhstan"]),
+     ("kg","Kyrgyzstan",["kyrgyzstan"]),
+     ("uz","Uzbekistan",["uzbekistan"]),
+   ]),
+ ]),
+ ("mena", "Middle East & North Africa", [
+   ("me-lev", "Levant & Gulf", [
+     ("il","Israel & Palestine",["bedouin","negev","naqab","palestinian land","israel","west bank"]),
+     ("jo","Jordan",["jordan","bedouin jordan"]),
+     ("iq","Iraq",["iraq","marsh arabs","yazidi","kurdistan iraq"]),
+     ("ir","Iran",["iran","qashqai","bakhtiari","ahwazi"]),
+     ("sa","Gulf states",["saudi arabia","uae","oman","qatar","kuwait"]),
+     ("tr","Turkey",["turkey","türkiye","kurdish","hasankeyf","alevi"]),
+   ]),
+ ]),
+ ("europe", "Europe", [
+   ("eu-n", "Nordic & Arctic Europe", [
+     ("no","Norway",["norway","norwegian","sápmi","fosen","finnmark"]),
+     ("se","Sweden",["sweden","swedish","girjas","gällivare","kiruna","samer"]),
+     ("fi","Finland",["finland","finnish","inari","sámi parliament"]),
+     ("gl","Greenland",["greenland","kalaallit","nuuk"]),
+     ("ru-eu","Russian Karelia & Kola",["kola peninsula","karelia","murmansk sami"]),
+   ]),
+   ("eu-o", "Rest of Europe", [
+     ("ua","Ukraine",["ukraine","crimean tatars","krym"]),
+     ("ru","Russia (European)",["russia","russian federation"]),
+     ("eu","European Union",["european union","european commission","brussels"]),
+     ("uk","United Kingdom",["united kingdom","britain","scotland","wales"]),
+     ("es","Spain",["spain","spanish"]),
+     ("fr","France",["france","french"]),
+     ("de","Germany",["germany","german"]),
+   ]),
+ ]),
+ ("oceania", "Oceania", [
+   ("oc-au", "Australia", [
+     ("au-n","Northern Australia",["northern territory","arnhem land","kimberley","juukan gorge","tiwi","gulf country"]),
+     ("au-w","Western Australia",["western australia","pilbara","noongar","yindjibarndi"]),
+     ("au-e","Eastern Australia",["queensland","new south wales","victoria aboriginal","wiradjuri","gunditjmara","adani","carmichael"]),
+     ("au-c","Central & South Australia",["south australia","adnyamathanha","arrernte","alice springs","olympic dam"]),
+   ]),
+   ("oc-nz", "Aotearoa New Zealand", [
+     ("nz","Aotearoa",["new zealand","aotearoa","māori","maori","iwi","waitangi","ngāi tahu","tainui"]),
+   ]),
+   ("oc-pac", "Pacific Islands", [
+     ("fj","Fiji",["fiji","fijian","itaukei"]),
+     ("nc","Kanaky New Caledonia",["new caledonia","kanaky","kanak","nouméa"]),
+     ("sb","Solomon Islands",["solomon islands"]),
+     ("vu","Vanuatu",["vanuatu","ni-vanuatu"]),
+     ("ws","Polynesia & Micronesia",["samoa","tonga","tuvalu","kiribati","marshall islands","palau","guam","chamorro","tahiti","rapa nui","easter island"]),
+   ]),
+ ]),
+ ("polar", "Arctic & Antarctic", [
+   ("pol-arc", "Circumpolar", [
+     ("arctic","Arctic Council region",["arctic council","circumpolar","inuit circumpolar","arctic indigenous"]),
+   ]),
+ ]),
 ]
-
 
 # --------------------------------------------------------------------------
 # Subjects
@@ -558,8 +675,10 @@ MEASURED_C = _compile_all(MEASURED)
 PROJECTED_C = _compile_all(PROJECTED)
 TOPICS_C = [(tid, label, [(_compile(t), _compile_all(g) if g else None) for t, g in terms])
             for tid, label, terms in TOPICS]
-GEO_C = [(gid, label, [(_compile(t), _compile_all(g) if g else None) for t, g in terms])
-         for gid, label, terms in GEO]
+GEO3_C = [(rid, rlabel, [(sid, slabel, [(pid, plabel, _compile_all(terms))
+                                        for pid, plabel, terms in places])
+                        for sid, slabel, places in subs])
+          for rid, rlabel, subs in GEO3]
 
 
 def relevant(text):
@@ -615,17 +734,22 @@ def topics_for(text):
     return hits
 
 
-def regions_for(text):
-    hits = []
-    for gid, _label, terms in GEO_C:
-        for term, guards in terms:
-            if not hit(text, [term]):
-                continue
-            if guards and not hit(text, guards):
-                continue
-            hits.append(gid)
-            break
-    return hits or ["unlocated"]
+def places_for(text):
+    """Returns (regions, subregions, places). Naming a place implies the
+    subregion and region above it."""
+    regions, subs, places = [], [], []
+    for rid, _rl, sublist in GEO3_C:
+        for sid, _sl, plist in sublist:
+            for pid, _pl, terms in plist:
+                if not hit(text, terms):
+                    continue
+                if pid not in places:
+                    places.append(pid)
+                if sid not in subs:
+                    subs.append(sid)
+                if rid not in regions:
+                    regions.append(rid)
+    return (regions or ["unlocated"], subs or ["unlocated"], places or ["unlocated"])
 
 
 def load_sources():
@@ -696,10 +820,12 @@ def run(dry_run=False, fixtures=None):
                     continue
                 if not relevant(text):
                     continue
-                places = regions_for(text)
-                total, reasons = pressure(text, src["standing"], places != ["unlocated"])
+                regions, subs, places = places_for(text)
+                total, reasons = pressure(text, src["standing"], regions != ["unlocated"])
                 row["x"] = topics_for(text) or ["territory"]
-                row["w"] = places
+                row["w"] = regions
+                row["sr"] = subs
+                row["pl"] = places
                 row["p"] = total
                 row["y"] = reasons
                 row["st"] = src["standing"]
@@ -750,8 +876,12 @@ def run(dry_run=False, fixtures=None):
             {"id": "press", "label": "Press"},
         ],
         "topics": [{"id": tid, "label": label} for tid, label, _ in TOPICS],
-        "geo": ([{"id": gid, "label": label} for gid, label, _ in GEO] +
-                [{"id": "unlocated", "label": "No single region"}]),
+        "geo": ([{"id": rid, "label": rlabel,
+                  "subs": [{"id": sid, "label": slabel,
+                            "places": [{"id": pid, "label": plabel} for pid, plabel, _t in places]}
+                           for sid, slabel, places in subs]}
+                 for rid, rlabel, subs in GEO3] +
+                [{"id": "unlocated", "label": "No single region", "subs": []}]),
         "sources": stats,
         "items": items,
     }
