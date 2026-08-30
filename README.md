@@ -60,6 +60,16 @@ flood every query.
 
 At **3** or more the row is marked well documented, and the *Evidence* filter narrows to those.
 
+## Region, three levels deep
+
+Placement runs region → subregion → place: 10 regions, 26 subregions, 134 places. Pick a region and
+a second row opens with its subregions; pick one and a third lists the places inside it. Latin
+America → Amazon Basin → Brazilian Amazon. Oceania → Australia → Northern Australia. Europe →
+Nordic & Arctic Europe → Sweden. A story naming a place files under everything above it, and each
+row is labelled with the most specific placement known.
+
+Every chip carries its own count, so an empty subregion shows as empty rather than vanishing.
+
 ## Ten subjects
 
 Territory & titling, Extraction & infrastructure, Courts & treaties & policy, Defenders &
