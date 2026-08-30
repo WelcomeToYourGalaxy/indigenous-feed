@@ -1013,6 +1013,8 @@ LOCATIVE = [
  " v ", " в ", " на ", " у ", " до ", " στη", " στο", " την ", " στην ",
  "في ", "ب", "ל", "ב", "ที่", "ใน", "在", "で", "へ", "에서", "로",
 ]
+_LOC_MAX = 12          # how far back to look for the marker
+
 
 def _first_pos(text, compiled):
     """Where a place's terms first appear in the text, or None."""
