@@ -194,11 +194,12 @@
 .ip-map .leaflet-control-attribution { background: rgba(19,19,17,0.8); color: var(--ink-faint); font-size: 0.5rem; }
 .ip-map .leaflet-control-attribution a { color: var(--ink-dim); }
 
-@media (max-width: 1200px) {
-    .ip-body { flex-direction: column; }
-    .ip-body > .ip-list { flex: 1 1 auto; min-height: 140px; }
-    .ip-map-wrap { flex: 0 0 52%; height: auto; min-height: 200px;
-        border-left: 0; border-top: 1px solid var(--line-soft); } }
+/* The map keeps its column beside the list at every width. Below 900px it
+   narrows rather than moving underneath — there is no companion panel here
+   competing for the height, so nothing has to go below the fold. */
+@media (max-width: 900px) {
+    .ip-map-wrap { flex: 0 0 34%; min-width: 150px; }
+}
 </style>
 </head>
 <body style="margin:0; background:#0c0d0b;">
@@ -338,16 +339,16 @@ const ENDPOINTS = [
 // Earth tones: moss, sage, clay, slate, mauve, taupe. Nothing neon, and
 // nothing in the orange or yellow band.
 const TOPIC_COLOR = {
-    territory: '#9bb08a',      // moss
-    extraction: '#c08a86',     // clay
-    law: '#93a3c0',            // dusty blue
-    defenders: '#b58080',      // deep clay
-    isolation: '#8ea2b8',      // slate blue
-    environment: '#86a5a5',    // weathered teal
-    displacement: '#c4a6a2',   // dusty rose
-    culture: '#a496b8',        // muted violet
-    health: '#b193a8',         // mauve
-    recognition: '#a8b79a'     // sage
+    territory: '#b58080',      // moss
+    extraction: '#8ea2b8',     // clay
+    law: '#a8b79a',            // dusty blue
+    defenders: '#c08a86',      // deep clay
+    isolation: '#a496b8',      // slate blue
+    environment: '#a9a49a',    // weathered teal
+    displacement: '#86a5a5',   // dusty rose
+    culture: '#c4a6a2',        // muted violet
+    health: '#93a3c0',         // mauve
+    recognition: '#b193a8'     // sage
 };
 const STANDING_COLOR = {
     official: '#93a3c0', indigenous: '#9bb08a', research: '#a8b79a',
