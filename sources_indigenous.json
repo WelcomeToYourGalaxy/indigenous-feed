@@ -1,1443 +1,2743 @@
 {
-  "_note": "Wires for the Indigenous peoples feed. harvest_indigenous.py reads this and writes wire_indigenous.json. Each wire carries a 'standing': official (UN bodies, courts, state agencies), research, indigenous (Indigenous-run and Indigenous-focused media and organisations), field (conservation and human-rights field press), or press. Indigenous-run outlets are labelled as such and can be filtered on their own. Locale coverage is expanded by the same market-and-slice method as the other feeds. Locale coverage is expanded: several country editions per language, and each query split into slices so no single search hits Google News's ~100-result cap.",
-  "direct": [
-    {
-      "name": "UN News — Human Rights",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://news.un.org/feed/subscribe/en/news/topic/human-rights/feed/rss.xml"
-    },
-    {
-      "name": "OHCHR — news",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.ohchr.org/en/rss/news"
-    },
-    {
-      "name": "JURIST — legal news",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.jurist.org/news/feed/"
-    },
-    {
-      "name": "Courthouse News",
-      "lang": "en",
-      "standing": "official",
-      "url": "https://www.courthousenews.com/feed/"
-    },
-    {
-      "name": "Human Rights Watch",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://www.hrw.org/rss/news"
-    },
-    {
-      "name": "Amnesty International",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://www.amnesty.org/en/rss/"
-    },
-    {
-      "name": "Global Witness",
-      "lang": "en",
-      "standing": "research",
-      "url": "https://www.globalwitness.org/en/rss/"
-    },
-    {
-      "name": "Cultural Survival",
-      "lang": "en",
-      "standing": "indigenous",
-      "url": "https://www.culturalsurvival.org/rss.xml"
-    },
-    {
-      "name": "IWGIA",
-      "lang": "en",
-      "standing": "indigenous",
-      "url": "https://iwgia.org/en/rss.html"
-    },
-    {
-      "name": "Amazon Watch",
-      "lang": "en",
-      "standing": "indigenous",
-      "url": "https://amazonwatch.org/feed"
-    },
-    {
-      "name": "APTN News (Canada)",
-      "lang": "en",
-      "standing": "indigenous",
-      "url": "https://www.aptnnews.ca/feed/"
-    },
-    {
-      "name": "ICT News (Turtle Island)",
-      "lang": "en",
-      "standing": "indigenous",
-      "url": "https://ictnews.org/feed"
-    },
-    {
-      "name": "National Indigenous Times (AU)",
-      "lang": "en",
-      "standing": "indigenous",
-      "url": "https://nit.com.au/feed/"
-    },
-    {
-      "name": "Mongabay",
-      "lang": "en",
-      "standing": "field",
-      "url": "https://news.mongabay.com/feed/"
-    },
-    {
-      "name": "Mongabay — Latam",
-      "lang": "es",
-      "standing": "field",
-      "url": "https://es.mongabay.com/feed/"
-    },
-    {
-      "name": "Mongabay — Brasil",
-      "lang": "pt",
-      "standing": "field",
-      "url": "https://brasil.mongabay.com/feed/"
-    },
-    {
-      "name": "Mongabay — India",
-      "lang": "en",
-      "standing": "field",
-      "url": "https://india.mongabay.com/feed/"
-    },
-    {
-      "name": "Dialogue Earth",
-      "lang": "en",
-      "standing": "field",
-      "url": "https://dialogue.earth/en/feed/"
-    },
-    {
-      "name": "The Guardian — World",
-      "lang": "en",
-      "standing": "press",
-      "url": "https://www.theguardian.com/world/rss"
-    },
-    {
-      "name": "Down To Earth",
-      "lang": "en",
-      "standing": "press",
-      "url": "https://www.downtoearth.org.in/rss/environment"
-    }
-  ],
-  "gnews": [
-    {
-      "label": "English (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
-    },
-    {
-      "label": "English (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
-    },
-    {
-      "label": "English (GB) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
-    },
-    {
-      "label": "English (GB) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
-    },
-    {
-      "label": "English (IN) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
-    },
-    {
-      "label": "English (IN) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
-    },
-    {
-      "label": "English (AU) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
-    },
-    {
-      "label": "English (AU) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
-    },
-    {
-      "label": "English (Canada) (CA) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-CA",
-      "gl": "CA",
-      "ceid": "CA:en",
-      "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
-    },
-    {
-      "label": "English (Canada) (CA) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-CA",
-      "gl": "CA",
-      "ceid": "CA:en",
-      "query": "pipeline First Nations OR residential schools"
-    },
-    {
-      "label": "English (Canada) (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
-    },
-    {
-      "label": "English (Canada) (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "pipeline First Nations OR residential schools"
-    },
-    {
-      "label": "English (Canada) (GB) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
-    },
-    {
-      "label": "English (Canada) (GB) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "pipeline First Nations OR residential schools"
-    },
-    {
-      "label": "English (Canada) (IN) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
-    },
-    {
-      "label": "English (Canada) (IN) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "pipeline First Nations OR residential schools"
-    },
-    {
-      "label": "English (Australia) (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
-    },
-    {
-      "label": "English (Australia) (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "heritage destruction mining OR \"cultural heritage\" act"
-    },
-    {
-      "label": "English (Australia) (GB) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
-    },
-    {
-      "label": "English (Australia) (GB) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "heritage destruction mining OR \"cultural heritage\" act"
-    },
-    {
-      "label": "English (Australia) (IN) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
-    },
-    {
-      "label": "English (Australia) (IN) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "heritage destruction mining OR \"cultural heritage\" act"
-    },
-    {
-      "label": "English (Australia) (AU) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
-    },
-    {
-      "label": "English (Australia) (AU) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "heritage destruction mining OR \"cultural heritage\" act"
-    },
-    {
-      "label": "English (NZ) (NZ) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-NZ",
-      "gl": "NZ",
-      "ceid": "NZ:en",
-      "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
-    },
-    {
-      "label": "English (NZ) (NZ) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-NZ",
-      "gl": "NZ",
-      "ceid": "NZ:en",
-      "query": "Waitangi Tribunal OR foreshore seabed"
-    },
-    {
-      "label": "English (NZ) (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
-    },
-    {
-      "label": "English (NZ) (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "Waitangi Tribunal OR foreshore seabed"
-    },
-    {
-      "label": "English (NZ) (GB) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
-    },
-    {
-      "label": "English (NZ) (GB) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "Waitangi Tribunal OR foreshore seabed"
-    },
-    {
-      "label": "English (NZ) (IN) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
-    },
-    {
-      "label": "English (NZ) (IN) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "Waitangi Tribunal OR foreshore seabed"
-    },
-    {
-      "label": "English (India) (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
-    },
-    {
-      "label": "English (India) (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "gram sabha consent mining"
-    },
-    {
-      "label": "English (India) (GB) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
-    },
-    {
-      "label": "English (India) (GB) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "gram sabha consent mining"
-    },
-    {
-      "label": "English (India) (IN) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
-    },
-    {
-      "label": "English (India) (IN) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "gram sabha consent mining"
-    },
-    {
-      "label": "English (India) (AU) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
-    },
-    {
-      "label": "English (India) (AU) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-AU",
-      "gl": "AU",
-      "ceid": "AU:en",
-      "query": "gram sabha consent mining"
-    },
-    {
-      "label": "English (Philippines) (PH) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-PH",
-      "gl": "PH",
-      "ceid": "PH:en",
-      "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
-    },
-    {
-      "label": "English (Philippines) (PH) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-PH",
-      "gl": "PH",
-      "ceid": "PH:en",
-      "query": "Lumad school OR free prior informed consent"
-    },
-    {
-      "label": "English (Philippines) (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
-    },
-    {
-      "label": "English (Philippines) (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "Lumad school OR free prior informed consent"
-    },
-    {
-      "label": "English (Philippines) (GB) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
-    },
-    {
-      "label": "English (Philippines) (GB) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "Lumad school OR free prior informed consent"
-    },
-    {
-      "label": "English (Philippines) (IN) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
-    },
-    {
-      "label": "English (Philippines) (IN) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "Lumad school OR free prior informed consent"
-    },
-    {
-      "label": "English (Kenya) (KE) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-KE",
-      "gl": "KE",
-      "ceid": "KE:en",
-      "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
-    },
-    {
-      "label": "English (Kenya) (KE) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-KE",
-      "gl": "KE",
-      "ceid": "KE:en",
-      "query": "forest eviction court"
-    },
-    {
-      "label": "English (Kenya) (US) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
-    },
-    {
-      "label": "English (Kenya) (US) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "forest eviction court"
-    },
-    {
-      "label": "English (Kenya) (GB) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
-    },
-    {
-      "label": "English (Kenya) (GB) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "forest eviction court"
-    },
-    {
-      "label": "English (Kenya) (IN) 1",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
-    },
-    {
-      "label": "English (Kenya) (IN) 2",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "forest eviction court"
-    },
-    {
-      "label": "English (Nigeria) (NG)",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-NG",
-      "gl": "NG",
-      "ceid": "NG:en",
-      "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
-    },
-    {
-      "label": "English (Nigeria) (US)",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
-    },
-    {
-      "label": "English (Nigeria) (GB)",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-GB",
-      "gl": "GB",
-      "ceid": "GB:en",
-      "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
-    },
-    {
-      "label": "English (Nigeria) (IN)",
-      "lang": "en",
-      "standing": "press",
-      "hl": "en-IN",
-      "gl": "IN",
-      "ceid": "IN:en",
-      "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
-    },
-    {
-      "label": "Español (ES) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
-    },
-    {
-      "label": "Español (ES) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "despojo territorial OR comunidad indígena minería"
-    },
-    {
-      "label": "Español (MX) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
-    },
-    {
-      "label": "Español (MX) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "despojo territorial OR comunidad indígena minería"
-    },
-    {
-      "label": "Español (AR) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
-    },
-    {
-      "label": "Español (AR) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "despojo territorial OR comunidad indígena minería"
-    },
-    {
-      "label": "Español (CO) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "CO",
-      "ceid": "CO:es-419",
-      "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
-    },
-    {
-      "label": "Español (CO) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "CO",
-      "ceid": "CO:es-419",
-      "query": "despojo territorial OR comunidad indígena minería"
-    },
-    {
-      "label": "Español (Perú) (PE) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "PE",
-      "ceid": "PE:es-419",
-      "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
-    },
-    {
-      "label": "Español (Perú) (PE) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "PE",
-      "ceid": "PE:es-419",
-      "query": "derrame petróleo comunidad"
-    },
-    {
-      "label": "Español (Perú) (ES) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
-    },
-    {
-      "label": "Español (Perú) (ES) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "derrame petróleo comunidad"
-    },
-    {
-      "label": "Español (Perú) (MX) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
-    },
-    {
-      "label": "Español (Perú) (MX) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "derrame petróleo comunidad"
-    },
-    {
-      "label": "Español (Perú) (AR) 1",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
-    },
-    {
-      "label": "Español (Perú) (AR) 2",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "derrame petróleo comunidad"
-    },
-    {
-      "label": "Español (Chile) (CL)",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "CL",
-      "ceid": "CL:es-419",
-      "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
-    },
-    {
-      "label": "Español (Chile) (ES)",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es",
-      "gl": "ES",
-      "ceid": "ES:es",
-      "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
-    },
-    {
-      "label": "Español (Chile) (MX)",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "MX",
-      "ceid": "MX:es-419",
-      "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
-    },
-    {
-      "label": "Español (Chile) (AR)",
-      "lang": "es",
-      "standing": "press",
-      "hl": "es-419",
-      "gl": "AR",
-      "ceid": "AR:es-419",
-      "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
-    },
-    {
-      "label": "Português (BR) 1",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "BR",
-      "ceid": "BR:pt-419",
-      "query": "terra indígena demarcação OR marco temporal OR garimpo terra indígena"
-    },
-    {
-      "label": "Português (BR) 2",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "BR",
-      "ceid": "BR:pt-419",
-      "query": "povos isolados OR quilombola titulação"
-    },
-    {
-      "label": "Português (PT) 1",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "PT",
-      "ceid": "PT:pt-150",
-      "query": "terra indígena demarcação OR marco temporal OR garimpo terra indígena"
-    },
-    {
-      "label": "Português (PT) 2",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "PT",
-      "ceid": "PT:pt-150",
-      "query": "povos isolados OR quilombola titulação"
-    },
-    {
-      "label": "Português (AO) 1",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "AO",
-      "ceid": "AO:pt-150",
-      "query": "terra indígena demarcação OR marco temporal OR garimpo terra indígena"
-    },
-    {
-      "label": "Português (AO) 2",
-      "lang": "pt",
-      "standing": "press",
-      "hl": "pt-BR",
-      "gl": "AO",
-      "ceid": "AO:pt-150",
-      "query": "povos isolados OR quilombola titulação"
-    },
-    {
-      "label": "Français (FR) 1",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "FR",
-      "ceid": "FR:fr",
-      "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
-    },
-    {
-      "label": "Français (FR) 2",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "FR",
-      "ceid": "FR:fr",
-      "query": "Kanak terres"
-    },
-    {
-      "label": "Français (BE) 1",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "BE",
-      "ceid": "BE:fr",
-      "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
-    },
-    {
-      "label": "Français (BE) 2",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "BE",
-      "ceid": "BE:fr",
-      "query": "Kanak terres"
-    },
-    {
-      "label": "Français (CA) 1",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "CA",
-      "ceid": "CA:fr",
-      "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
-    },
-    {
-      "label": "Français (CA) 2",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "CA",
-      "ceid": "CA:fr",
-      "query": "Kanak terres"
-    },
-    {
-      "label": "Français (SN) 1",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "SN",
-      "ceid": "SN:fr",
-      "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
-    },
-    {
-      "label": "Français (SN) 2",
-      "lang": "fr",
-      "standing": "press",
-      "hl": "fr",
-      "gl": "SN",
-      "ceid": "SN:fr",
-      "query": "Kanak terres"
-    },
-    {
-      "label": "Deutsch (DE)",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "DE",
-      "ceid": "DE:de",
-      "query": "indigene Völker Landrechte OR Ureinwohner Vertreibung OR Rohstoffabbau indigene Gebiete"
-    },
-    {
-      "label": "Deutsch (AT)",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "AT",
-      "ceid": "AT:de",
-      "query": "indigene Völker Landrechte OR Ureinwohner Vertreibung OR Rohstoffabbau indigene Gebiete"
-    },
-    {
-      "label": "Deutsch (CH)",
-      "lang": "de",
-      "standing": "press",
-      "hl": "de",
-      "gl": "CH",
-      "ceid": "CH:de",
-      "query": "indigene Völker Landrechte OR Ureinwohner Vertreibung OR Rohstoffabbau indigene Gebiete"
-    },
-    {
-      "label": "Italiano (IT)",
-      "lang": "it",
-      "standing": "press",
-      "hl": "it",
-      "gl": "IT",
-      "ceid": "IT:it",
-      "query": "popoli indigeni terre OR diritti indigeni sentenza OR comunità indigene miniera"
-    },
-    {
-      "label": "Italiano (CH)",
-      "lang": "it",
-      "standing": "press",
-      "hl": "it",
-      "gl": "CH",
-      "ceid": "CH:it",
-      "query": "popoli indigeni terre OR diritti indigeni sentenza OR comunità indigene miniera"
-    },
-    {
-      "label": "Nederlands (NL)",
-      "lang": "nl",
-      "standing": "press",
-      "hl": "nl",
-      "gl": "NL",
-      "ceid": "NL:nl",
-      "query": "inheemse volken landrechten OR inheemse gemeenschap mijnbouw"
-    },
-    {
-      "label": "Nederlands (BE)",
-      "lang": "nl",
-      "standing": "press",
-      "hl": "nl",
-      "gl": "BE",
-      "ceid": "BE:nl",
-      "query": "inheemse volken landrechten OR inheemse gemeenschap mijnbouw"
-    },
-    {
-      "label": "Svenska",
-      "lang": "sv",
-      "standing": "press",
-      "hl": "sv",
-      "gl": "SE",
-      "ceid": "SE:sv",
-      "query": "samer renskötsel gruva OR urfolk rättigheter OR Girjas dom"
-    },
-    {
-      "label": "Ελληνικά",
-      "lang": "el",
-      "standing": "press",
-      "hl": "el",
-      "gl": "GR",
-      "ceid": "GR:el",
-      "query": "αυτόχθονες λαοί δικαιώματα OR ιθαγενείς κοινότητες γη"
-    },
-    {
-      "label": "Polski",
-      "lang": "pl",
-      "standing": "press",
-      "hl": "pl",
-      "gl": "PL",
-      "ceid": "PL:pl",
-      "query": "ludy tubylcze prawa OR rdzenni mieszkańcy ziemia"
-    },
-    {
-      "label": "Русский (RU)",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "RU",
-      "ceid": "RU:ru",
-      "query": "коренные народы права OR территории традиционного природопользования OR коренные малочисленные народы"
-    },
-    {
-      "label": "Русский (KZ)",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "KZ",
-      "ceid": "KZ:ru",
-      "query": "коренные народы права OR территории традиционного природопользования OR коренные малочисленные народы"
-    },
-    {
-      "label": "Русский (BY)",
-      "lang": "ru",
-      "standing": "press",
-      "hl": "ru",
-      "gl": "BY",
-      "ceid": "BY:ru",
-      "query": "коренные народы права OR территории традиционного природопользования OR коренные малочисленные народы"
-    },
-    {
-      "label": "Українська",
-      "lang": "uk",
-      "standing": "press",
-      "hl": "uk",
-      "gl": "UA",
-      "ceid": "UA:uk",
-      "query": "корінні народи права OR кримські татари земля"
-    },
-    {
-      "label": "Türkçe",
-      "lang": "tr",
-      "standing": "press",
-      "hl": "tr",
-      "gl": "TR",
-      "ceid": "TR:tr",
-      "query": "yerli halklar hakları OR yerli topluluk toprak"
-    },
-    {
-      "label": "العربية (EG)",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "EG",
-      "ceid": "EG:ar",
-      "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
-    },
-    {
-      "label": "العربية (SA)",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "SA",
-      "ceid": "SA:ar",
-      "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
-    },
-    {
-      "label": "العربية (AE)",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "AE",
-      "ceid": "AE:ar",
-      "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
-    },
-    {
-      "label": "العربية (MA)",
-      "lang": "ar",
-      "standing": "press",
-      "hl": "ar",
-      "gl": "MA",
-      "ceid": "MA:ar",
-      "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
-    },
-    {
-      "label": "فارسی",
-      "lang": "fa",
-      "standing": "press",
-      "hl": "fa",
-      "gl": "IR",
-      "ceid": "IR:fa",
-      "query": "\"مردمان بومی\" حقوق OR جوامع بومی زمین"
-    },
-    {
-      "label": "हिन्दी 1",
-      "lang": "hi",
-      "standing": "press",
-      "hl": "hi",
-      "gl": "IN",
-      "ceid": "IN:hi",
-      "query": "आदिवासी भूमि अधिकार OR वन अधिकार कानून OR जनजातीय विस्थापन"
-    },
-    {
-      "label": "हिन्दी 2",
-      "lang": "hi",
-      "standing": "press",
-      "hl": "hi",
-      "gl": "IN",
-      "ceid": "IN:hi",
-      "query": "ग्राम सभा सहमति"
-    },
-    {
-      "label": "বাংলা (BD)",
-      "lang": "bn",
-      "standing": "press",
-      "hl": "bn",
-      "gl": "BD",
-      "ceid": "BD:bn",
-      "query": "আদিবাসী ভূমি অধিকার OR পাহাড়ি জনগোষ্ঠী উচ্ছেদ"
-    },
-    {
-      "label": "বাংলা (IN)",
-      "lang": "bn",
-      "standing": "press",
-      "hl": "bn",
-      "gl": "IN",
-      "ceid": "IN:bn",
-      "query": "আদিবাসী ভূমি অধিকার OR পাহাড়ি জনগোষ্ঠী উচ্ছেদ"
-    },
-    {
-      "label": "Bahasa Indonesia 1",
-      "lang": "id",
-      "standing": "press",
-      "hl": "id",
-      "gl": "ID",
-      "ceid": "ID:id",
-      "query": "masyarakat adat tanah OR hutan adat pengakuan OR konflik agraria adat"
-    },
-    {
-      "label": "Bahasa Indonesia 2",
-      "lang": "id",
-      "standing": "press",
-      "hl": "id",
-      "gl": "ID",
-      "ceid": "ID:id",
-      "query": "orang asli papua"
-    },
-    {
-      "label": "Tiếng Việt",
-      "lang": "vi",
-      "standing": "press",
-      "hl": "vi",
-      "gl": "VN",
-      "ceid": "VN:vi",
-      "query": "người dân tộc thiểu số đất đai OR cộng đồng bản địa rừng"
-    },
-    {
-      "label": "ไทย",
-      "lang": "th",
-      "standing": "press",
-      "hl": "th",
-      "gl": "TH",
-      "ceid": "TH:th",
-      "query": "ชนเผ่าพื้นเมือง ที่ดิน OR กะเหรี่ยง บางกลอย OR สิทธิชุมชน ป่า"
-    },
-    {
-      "label": "日本語",
-      "lang": "ja",
-      "standing": "press",
-      "hl": "ja",
-      "gl": "JP",
-      "ceid": "JP:ja",
-      "query": "アイヌ 権利 OR 先住民族 土地 OR 遺骨返還 先住民"
-    },
-    {
-      "label": "简体中文 (CN)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-CN",
-      "gl": "CN",
-      "ceid": "CN:zh-Hans",
-      "query": "原住民 土地权 OR 土著社区 采矿 OR 少数民族 迁移 生态"
-    },
-    {
-      "label": "简体中文 (TW)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-TW",
-      "gl": "TW",
-      "ceid": "TW:zh-Hant",
-      "query": "原住民 土地权 OR 土著社区 采矿 OR 少数民族 迁移 生态"
-    },
-    {
-      "label": "简体中文 (HK)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-HK",
-      "gl": "HK",
-      "ceid": "HK:zh-Hant",
-      "query": "原住民 土地权 OR 土著社区 采矿 OR 少数民族 迁移 生态"
-    },
-    {
-      "label": "简体中文 (SG)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-CN",
-      "gl": "SG",
-      "ceid": "SG:zh-Hans",
-      "query": "原住民 土地权 OR 土著社区 采矿 OR 少数民族 迁移 生态"
-    },
-    {
-      "label": "繁體中文 (CN)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-CN",
-      "gl": "CN",
-      "ceid": "CN:zh-Hans",
-      "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
-    },
-    {
-      "label": "繁體中文 (TW)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-TW",
-      "gl": "TW",
-      "ceid": "TW:zh-Hant",
-      "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
-    },
-    {
-      "label": "繁體中文 (HK)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-HK",
-      "gl": "HK",
-      "ceid": "HK:zh-Hant",
-      "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
-    },
-    {
-      "label": "繁體中文 (SG)",
-      "lang": "zh",
-      "standing": "press",
-      "hl": "zh-CN",
-      "gl": "SG",
-      "ceid": "SG:zh-Hans",
-      "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
-    },
-    {
-      "label": "한국어",
-      "lang": "ko",
-      "standing": "press",
-      "hl": "ko",
-      "gl": "KR",
-      "ceid": "KR:ko",
-      "query": "원주민 토지 권리 OR 선주민 인권"
-    },
-    {
-      "label": "Kiswahili (KE)",
-      "lang": "sw",
-      "standing": "press",
-      "hl": "sw",
-      "gl": "KE",
-      "ceid": "KE:sw",
-      "query": "jamii za asili ardhi OR wamaasai kufukuzwa OR haki za ardhi jamii"
-    },
-    {
-      "label": "Kiswahili (TZ)",
-      "lang": "sw",
-      "standing": "press",
-      "hl": "sw",
-      "gl": "TZ",
-      "ceid": "TZ:sw",
-      "query": "jamii za asili ardhi OR wamaasai kufukuzwa OR haki za ardhi jamii"
-    }
-  ],
-  "events": [
-    {
-      "label": "Courts & rulings",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "indigenous land ruling court OR native title determination OR ancestral land verdict OR inter-american court indigenous"
-    },
-    {
-      "label": "Titling & recognition",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "indigenous land titled OR territory demarcated OR customary land recognised OR land returned to tribe OR co-management agreement"
-    },
-    {
-      "label": "Extraction on territory",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "mining concession indigenous territory OR oil block indigenous OR logging indigenous land OR dam indigenous displacement"
-    },
-    {
-      "label": "Defenders & criminalisation",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "land defender killed OR indigenous leader murdered OR criminalisation indigenous protest OR Global Witness defenders report"
-    },
-    {
-      "label": "Uncontacted & isolated",
-      "lang": "en",
-      "standing": "indigenous",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "uncontacted tribe OR isolated peoples territory OR first contact indigenous OR loggers uncontacted"
-    },
-    {
-      "label": "Consent & consultation",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "free prior and informed consent OR ILO 169 consultation OR consulta previa fallo OR consent violated indigenous project"
-    },
-    {
-      "label": "Conservation evictions",
-      "lang": "en",
-      "standing": "field",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "conservation eviction indigenous OR fortress conservation park eviction OR carbon offset project indigenous land OR 30x30 indigenous rights"
-    },
-    {
-      "label": "Environment & health",
-      "lang": "en",
-      "standing": "research",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "mercury contamination indigenous OR oil spill indigenous community OR water contamination reservation OR climate relocation indigenous village"
-    },
-    {
-      "label": "Heritage & repatriation",
-      "lang": "en",
-      "standing": "indigenous",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "sacred site destroyed OR repatriation of remains indigenous OR language revitalisation funding OR heritage act indigenous"
-    },
-    {
-      "label": "Settler-state policy",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "truth and reconciliation indigenous OR treaty negotiation government OR indigenous voice parliament OR self-determination agreement"
-    },
-    {
-      "label": "Survival & IWGIA (site)",
-      "lang": "en",
-      "standing": "indigenous",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "site:survivalinternational.org OR site:iwgia.org OR site:culturalsurvival.org land OR territory OR eviction"
-    },
-    {
-      "label": "UN & rights bodies (site)",
-      "lang": "en",
-      "standing": "official",
-      "hl": "en-US",
-      "gl": "US",
-      "ceid": "US:en",
-      "query": "site:ohchr.org OR site:un.org OR site:iachr.org indigenous peoples rights"
-    }
-  ]
+ "_note": "Wires for the Indigenous peoples feed. harvest_indigenous.py reads this and writes wire_indigenous.json. Each wire carries a 'standing': official (UN bodies, courts, state agencies), research, indigenous (Indigenous-run and Indigenous-focused media and organisations), field (conservation and human-rights field press), or press. Indigenous-run outlets are labelled as such and can be filtered on their own. Locale coverage is expanded by the same market-and-slice method as the other feeds. Locale coverage is expanded: several country editions per language, and each query split into slices so no single search hits Google News's ~100-result cap.",
+ "direct": [
+  {
+   "name": "UN News — Human Rights",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://news.un.org/feed/subscribe/en/news/topic/human-rights/feed/rss.xml"
+  },
+  {
+   "name": "OHCHR — news",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.ohchr.org/en/rss/news"
+  },
+  {
+   "name": "JURIST — legal news",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.jurist.org/news/feed/"
+  },
+  {
+   "name": "Courthouse News",
+   "lang": "en",
+   "standing": "official",
+   "url": "https://www.courthousenews.com/feed/"
+  },
+  {
+   "name": "Human Rights Watch",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://www.hrw.org/rss/news"
+  },
+  {
+   "name": "Amnesty International",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://www.amnesty.org/en/rss/"
+  },
+  {
+   "name": "Global Witness",
+   "lang": "en",
+   "standing": "research",
+   "url": "https://www.globalwitness.org/en/rss/"
+  },
+  {
+   "name": "Cultural Survival",
+   "lang": "en",
+   "standing": "indigenous",
+   "url": "https://www.culturalsurvival.org/rss.xml"
+  },
+  {
+   "name": "IWGIA",
+   "lang": "en",
+   "standing": "indigenous",
+   "url": "https://iwgia.org/en/rss.html"
+  },
+  {
+   "name": "Amazon Watch",
+   "lang": "en",
+   "standing": "indigenous",
+   "url": "https://amazonwatch.org/feed"
+  },
+  {
+   "name": "APTN News (Canada)",
+   "lang": "en",
+   "standing": "indigenous",
+   "url": "https://www.aptnnews.ca/feed/"
+  },
+  {
+   "name": "ICT News (Turtle Island)",
+   "lang": "en",
+   "standing": "indigenous",
+   "url": "https://ictnews.org/feed"
+  },
+  {
+   "name": "National Indigenous Times (AU)",
+   "lang": "en",
+   "standing": "indigenous",
+   "url": "https://nit.com.au/feed/"
+  },
+  {
+   "name": "Mongabay",
+   "lang": "en",
+   "standing": "field",
+   "url": "https://news.mongabay.com/feed/"
+  },
+  {
+   "name": "Mongabay — Latam",
+   "lang": "es",
+   "standing": "field",
+   "url": "https://es.mongabay.com/feed/"
+  },
+  {
+   "name": "Mongabay — Brasil",
+   "lang": "pt",
+   "standing": "field",
+   "url": "https://brasil.mongabay.com/feed/"
+  },
+  {
+   "name": "Mongabay — India",
+   "lang": "en",
+   "standing": "field",
+   "url": "https://india.mongabay.com/feed/"
+  },
+  {
+   "name": "Dialogue Earth",
+   "lang": "en",
+   "standing": "field",
+   "url": "https://dialogue.earth/en/feed/"
+  },
+  {
+   "name": "The Guardian — World",
+   "lang": "en",
+   "standing": "press",
+   "url": "https://www.theguardian.com/world/rss"
+  },
+  {
+   "name": "Down To Earth",
+   "lang": "en",
+   "standing": "press",
+   "url": "https://www.downtoearth.org.in/rss/environment"
+  }
+ ],
+ "gnews": [
+  {
+   "label": "English (US) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
+  },
+  {
+   "label": "English (US) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
+  },
+  {
+   "label": "English (GB) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
+  },
+  {
+   "label": "English (GB) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
+  },
+  {
+   "label": "English (IN) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
+  },
+  {
+   "label": "English (IN) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
+  },
+  {
+   "label": "English (AU) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "\"indigenous peoples\" land OR \"tribal nations\" treaty OR \"land back\""
+  },
+  {
+   "label": "English (AU) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "\"sacred site\" ruling OR \"indigenous territory\" mining"
+  },
+  {
+   "label": "English (Canada) (CA) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-CA",
+   "gl": "CA",
+   "ceid": "CA:en",
+   "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
+  },
+  {
+   "label": "English (Canada) (CA) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-CA",
+   "gl": "CA",
+   "ceid": "CA:en",
+   "query": "pipeline First Nations OR residential schools"
+  },
+  {
+   "label": "English (Canada) (US) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
+  },
+  {
+   "label": "English (Canada) (US) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "pipeline First Nations OR residential schools"
+  },
+  {
+   "label": "English (Canada) (GB) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
+  },
+  {
+   "label": "English (Canada) (GB) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "pipeline First Nations OR residential schools"
+  },
+  {
+   "label": "English (Canada) (IN) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "\"First Nations\" land OR treaty rights ruling OR \"duty to consult\""
+  },
+  {
+   "label": "English (Canada) (IN) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "pipeline First Nations OR residential schools"
+  },
+  {
+   "label": "English (Australia) (US) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
+  },
+  {
+   "label": "English (Australia) (US) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "heritage destruction mining OR \"cultural heritage\" act"
+  },
+  {
+   "label": "English (Australia) (GB) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
+  },
+  {
+   "label": "English (Australia) (GB) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "heritage destruction mining OR \"cultural heritage\" act"
+  },
+  {
+   "label": "English (Australia) (IN) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
+  },
+  {
+   "label": "English (Australia) (IN) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "heritage destruction mining OR \"cultural heritage\" act"
+  },
+  {
+   "label": "English (Australia) (AU) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "\"native title\" OR \"traditional owners\" OR Aboriginal land rights"
+  },
+  {
+   "label": "English (Australia) (AU) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "heritage destruction mining OR \"cultural heritage\" act"
+  },
+  {
+   "label": "English (NZ) (NZ) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NZ",
+   "gl": "NZ",
+   "ceid": "NZ:en",
+   "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
+  },
+  {
+   "label": "English (NZ) (NZ) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NZ",
+   "gl": "NZ",
+   "ceid": "NZ:en",
+   "query": "Waitangi Tribunal OR foreshore seabed"
+  },
+  {
+   "label": "English (NZ) (US) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
+  },
+  {
+   "label": "English (NZ) (US) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "Waitangi Tribunal OR foreshore seabed"
+  },
+  {
+   "label": "English (NZ) (GB) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
+  },
+  {
+   "label": "English (NZ) (GB) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "Waitangi Tribunal OR foreshore seabed"
+  },
+  {
+   "label": "English (NZ) (IN) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "Treaty of Waitangi OR \"Māori land\" OR iwi settlement"
+  },
+  {
+   "label": "English (NZ) (IN) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "Waitangi Tribunal OR foreshore seabed"
+  },
+  {
+   "label": "English (India) (US) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
+  },
+  {
+   "label": "English (India) (US) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "gram sabha consent mining"
+  },
+  {
+   "label": "English (India) (GB) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
+  },
+  {
+   "label": "English (India) (GB) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "gram sabha consent mining"
+  },
+  {
+   "label": "English (India) (IN) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
+  },
+  {
+   "label": "English (India) (IN) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "gram sabha consent mining"
+  },
+  {
+   "label": "English (India) (AU) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "Adivasi land OR \"Forest Rights Act\" OR \"scheduled tribe\" displacement"
+  },
+  {
+   "label": "English (India) (AU) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "gram sabha consent mining"
+  },
+  {
+   "label": "English (Philippines) (PH) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-PH",
+   "gl": "PH",
+   "ceid": "PH:en",
+   "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
+  },
+  {
+   "label": "English (Philippines) (PH) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-PH",
+   "gl": "PH",
+   "ceid": "PH:en",
+   "query": "Lumad school OR free prior informed consent"
+  },
+  {
+   "label": "English (Philippines) (US) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
+  },
+  {
+   "label": "English (Philippines) (US) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "Lumad school OR free prior informed consent"
+  },
+  {
+   "label": "English (Philippines) (GB) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
+  },
+  {
+   "label": "English (Philippines) (GB) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "Lumad school OR free prior informed consent"
+  },
+  {
+   "label": "English (Philippines) (IN) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "\"ancestral domain\" OR \"indigenous peoples\" mining OR IPRA law"
+  },
+  {
+   "label": "English (Philippines) (IN) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "Lumad school OR free prior informed consent"
+  },
+  {
+   "label": "English (Kenya) (KE) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-KE",
+   "gl": "KE",
+   "ceid": "KE:en",
+   "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
+  },
+  {
+   "label": "English (Kenya) (KE) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-KE",
+   "gl": "KE",
+   "ceid": "KE:en",
+   "query": "forest eviction court"
+  },
+  {
+   "label": "English (Kenya) (US) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
+  },
+  {
+   "label": "English (Kenya) (US) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "forest eviction court"
+  },
+  {
+   "label": "English (Kenya) (GB) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
+  },
+  {
+   "label": "English (Kenya) (GB) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "forest eviction court"
+  },
+  {
+   "label": "English (Kenya) (IN) 1",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "Ogiek eviction OR Maasai land OR indigenous community conservancy"
+  },
+  {
+   "label": "English (Kenya) (IN) 2",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "forest eviction court"
+  },
+  {
+   "label": "English (Nigeria) (NG)",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
+  },
+  {
+   "label": "English (Nigeria) (US)",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
+  },
+  {
+   "label": "English (Nigeria) (GB)",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
+  },
+  {
+   "label": "English (Nigeria) (IN)",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "\"host communities\" oil land OR Ogoni cleanup OR community land rights ruling"
+  },
+  {
+   "label": "Español (ES) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
+  },
+  {
+   "label": "Español (ES) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "despojo territorial OR comunidad indígena minería"
+  },
+  {
+   "label": "Español (MX) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
+  },
+  {
+   "label": "Español (MX) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "despojo territorial OR comunidad indígena minería"
+  },
+  {
+   "label": "Español (AR) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
+  },
+  {
+   "label": "Español (AR) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "despojo territorial OR comunidad indígena minería"
+  },
+  {
+   "label": "Español (CO) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CO",
+   "ceid": "CO:es-419",
+   "query": "\"pueblos indígenas\" territorio OR consulta previa OR tierras ancestrales"
+  },
+  {
+   "label": "Español (CO) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CO",
+   "ceid": "CO:es-419",
+   "query": "despojo territorial OR comunidad indígena minería"
+  },
+  {
+   "label": "Español (Perú) (PE) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "PE",
+   "ceid": "PE:es-419",
+   "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
+  },
+  {
+   "label": "Español (Perú) (PE) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "PE",
+   "ceid": "PE:es-419",
+   "query": "derrame petróleo comunidad"
+  },
+  {
+   "label": "Español (Perú) (ES) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
+  },
+  {
+   "label": "Español (Perú) (ES) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "derrame petróleo comunidad"
+  },
+  {
+   "label": "Español (Perú) (MX) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
+  },
+  {
+   "label": "Español (Perú) (MX) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "derrame petróleo comunidad"
+  },
+  {
+   "label": "Español (Perú) (AR) 1",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "pueblos indígenas Amazonía OR aislamiento voluntario OR titulación comunidad nativa"
+  },
+  {
+   "label": "Español (Perú) (AR) 2",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "derrame petróleo comunidad"
+  },
+  {
+   "label": "Español (Chile) (CL)",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CL",
+   "ceid": "CL:es-419",
+   "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
+  },
+  {
+   "label": "Español (Chile) (ES)",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
+  },
+  {
+   "label": "Español (Chile) (MX)",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
+  },
+  {
+   "label": "Español (Chile) (AR)",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "pueblo mapuche tierras OR consulta indígena OR reivindicación territorial"
+  },
+  {
+   "label": "Português (BR) 1",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "query": "terra indígena demarcação OR marco temporal OR garimpo terra indígena"
+  },
+  {
+   "label": "Português (BR) 2",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "query": "povos isolados OR quilombola titulação"
+  },
+  {
+   "label": "Português (PT) 1",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "query": "terra indígena demarcação OR marco temporal OR garimpo terra indígena"
+  },
+  {
+   "label": "Português (PT) 2",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "query": "povos isolados OR quilombola titulação"
+  },
+  {
+   "label": "Português (AO) 1",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "AO",
+   "ceid": "AO:pt-150",
+   "query": "terra indígena demarcação OR marco temporal OR garimpo terra indígena"
+  },
+  {
+   "label": "Português (AO) 2",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "AO",
+   "ceid": "AO:pt-150",
+   "query": "povos isolados OR quilombola titulação"
+  },
+  {
+   "label": "Français (FR) 1",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
+  },
+  {
+   "label": "Français (FR) 2",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "query": "Kanak terres"
+  },
+  {
+   "label": "Français (BE) 1",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "BE",
+   "ceid": "BE:fr",
+   "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
+  },
+  {
+   "label": "Français (BE) 2",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "BE",
+   "ceid": "BE:fr",
+   "query": "Kanak terres"
+  },
+  {
+   "label": "Français (CA) 1",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
+  },
+  {
+   "label": "Français (CA) 2",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "query": "Kanak terres"
+  },
+  {
+   "label": "Français (SN) 1",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "SN",
+   "ceid": "SN:fr",
+   "query": "peuples autochtones droits OR territoire autochtone OR orpaillage Guyane autochtone"
+  },
+  {
+   "label": "Français (SN) 2",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "SN",
+   "ceid": "SN:fr",
+   "query": "Kanak terres"
+  },
+  {
+   "label": "Deutsch (DE)",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "query": "indigene Völker Landrechte OR Ureinwohner Vertreibung OR Rohstoffabbau indigene Gebiete"
+  },
+  {
+   "label": "Deutsch (AT)",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "AT",
+   "ceid": "AT:de",
+   "query": "indigene Völker Landrechte OR Ureinwohner Vertreibung OR Rohstoffabbau indigene Gebiete"
+  },
+  {
+   "label": "Deutsch (CH)",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "CH",
+   "ceid": "CH:de",
+   "query": "indigene Völker Landrechte OR Ureinwohner Vertreibung OR Rohstoffabbau indigene Gebiete"
+  },
+  {
+   "label": "Italiano (IT)",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "query": "popoli indigeni terre OR diritti indigeni sentenza OR comunità indigene miniera"
+  },
+  {
+   "label": "Italiano (CH)",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "CH",
+   "ceid": "CH:it",
+   "query": "popoli indigeni terre OR diritti indigeni sentenza OR comunità indigene miniera"
+  },
+  {
+   "label": "Nederlands (NL)",
+   "lang": "nl",
+   "standing": "press",
+   "hl": "nl",
+   "gl": "NL",
+   "ceid": "NL:nl",
+   "query": "inheemse volken landrechten OR inheemse gemeenschap mijnbouw"
+  },
+  {
+   "label": "Nederlands (BE)",
+   "lang": "nl",
+   "standing": "press",
+   "hl": "nl",
+   "gl": "BE",
+   "ceid": "BE:nl",
+   "query": "inheemse volken landrechten OR inheemse gemeenschap mijnbouw"
+  },
+  {
+   "label": "Svenska",
+   "lang": "sv",
+   "standing": "press",
+   "hl": "sv",
+   "gl": "SE",
+   "ceid": "SE:sv",
+   "query": "samer renskötsel gruva OR urfolk rättigheter OR Girjas dom"
+  },
+  {
+   "label": "Ελληνικά",
+   "lang": "el",
+   "standing": "press",
+   "hl": "el",
+   "gl": "GR",
+   "ceid": "GR:el",
+   "query": "αυτόχθονες λαοί δικαιώματα OR ιθαγενείς κοινότητες γη"
+  },
+  {
+   "label": "Polski",
+   "lang": "pl",
+   "standing": "press",
+   "hl": "pl",
+   "gl": "PL",
+   "ceid": "PL:pl",
+   "query": "ludy tubylcze prawa OR rdzenni mieszkańcy ziemia"
+  },
+  {
+   "label": "Русский (RU)",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "query": "коренные народы права OR территории традиционного природопользования OR коренные малочисленные народы"
+  },
+  {
+   "label": "Русский (KZ)",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "KZ",
+   "ceid": "KZ:ru",
+   "query": "коренные народы права OR территории традиционного природопользования OR коренные малочисленные народы"
+  },
+  {
+   "label": "Русский (BY)",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "BY",
+   "ceid": "BY:ru",
+   "query": "коренные народы права OR территории традиционного природопользования OR коренные малочисленные народы"
+  },
+  {
+   "label": "Українська",
+   "lang": "uk",
+   "standing": "press",
+   "hl": "uk",
+   "gl": "UA",
+   "ceid": "UA:uk",
+   "query": "корінні народи права OR кримські татари земля"
+  },
+  {
+   "label": "Türkçe",
+   "lang": "tr",
+   "standing": "press",
+   "hl": "tr",
+   "gl": "TR",
+   "ceid": "TR:tr",
+   "query": "yerli halklar hakları OR yerli topluluk toprak"
+  },
+  {
+   "label": "العربية (EG)",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar",
+   "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
+  },
+  {
+   "label": "العربية (SA)",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "SA",
+   "ceid": "SA:ar",
+   "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
+  },
+  {
+   "label": "العربية (AE)",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "AE",
+   "ceid": "AE:ar",
+   "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
+  },
+  {
+   "label": "العربية (MA)",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "MA",
+   "ceid": "MA:ar",
+   "query": "\"الشعوب الأصلية\" حقوق OR أراضي الأجداد OR مجتمعات أصلية تعدين"
+  },
+  {
+   "label": "فارسی",
+   "lang": "fa",
+   "standing": "press",
+   "hl": "fa",
+   "gl": "IR",
+   "ceid": "IR:fa",
+   "query": "\"مردمان بومی\" حقوق OR جوامع بومی زمین"
+  },
+  {
+   "label": "हिन्दी 1",
+   "lang": "hi",
+   "standing": "press",
+   "hl": "hi",
+   "gl": "IN",
+   "ceid": "IN:hi",
+   "query": "आदिवासी भूमि अधिकार OR वन अधिकार कानून OR जनजातीय विस्थापन"
+  },
+  {
+   "label": "हिन्दी 2",
+   "lang": "hi",
+   "standing": "press",
+   "hl": "hi",
+   "gl": "IN",
+   "ceid": "IN:hi",
+   "query": "ग्राम सभा सहमति"
+  },
+  {
+   "label": "বাংলা (BD)",
+   "lang": "bn",
+   "standing": "press",
+   "hl": "bn",
+   "gl": "BD",
+   "ceid": "BD:bn",
+   "query": "আদিবাসী ভূমি অধিকার OR পাহাড়ি জনগোষ্ঠী উচ্ছেদ"
+  },
+  {
+   "label": "বাংলা (IN)",
+   "lang": "bn",
+   "standing": "press",
+   "hl": "bn",
+   "gl": "IN",
+   "ceid": "IN:bn",
+   "query": "আদিবাসী ভূমি অধিকার OR পাহাড়ি জনগোষ্ঠী উচ্ছেদ"
+  },
+  {
+   "label": "Bahasa Indonesia 1",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "query": "masyarakat adat tanah OR hutan adat pengakuan OR konflik agraria adat"
+  },
+  {
+   "label": "Bahasa Indonesia 2",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "query": "orang asli papua"
+  },
+  {
+   "label": "Tiếng Việt",
+   "lang": "vi",
+   "standing": "press",
+   "hl": "vi",
+   "gl": "VN",
+   "ceid": "VN:vi",
+   "query": "người dân tộc thiểu số đất đai OR cộng đồng bản địa rừng"
+  },
+  {
+   "label": "ไทย",
+   "lang": "th",
+   "standing": "press",
+   "hl": "th",
+   "gl": "TH",
+   "ceid": "TH:th",
+   "query": "ชนเผ่าพื้นเมือง ที่ดิน OR กะเหรี่ยง บางกลอย OR สิทธิชุมชน ป่า"
+  },
+  {
+   "label": "日本語",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "query": "アイヌ 権利 OR 先住民族 土地 OR 遺骨返還 先住民"
+  },
+  {
+   "label": "简体中文 (CN)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "CN",
+   "ceid": "CN:zh-Hans",
+   "query": "原住民 土地权 OR 土著社区 采矿 OR 少数民族 迁移 生态"
+  },
+  {
+   "label": "繁體中文 (TW)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "query": "原住民 土地權 OR 土著社羣 採礦 OR 少數民族 遷移 生態"
+  },
+  {
+   "label": "繁體中文 (HK)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "query": "原住民 土地權 OR 土著社區 採礦 OR 少數民族 遷移 生態"
+  },
+  {
+   "label": "简体中文 (SG)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "SG",
+   "ceid": "SG:zh-Hans",
+   "query": "原住民 土地权 OR 土著社区 采矿 OR 少数民族 迁移 生态"
+  },
+  {
+   "label": "繁體中文 (CN)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "CN",
+   "ceid": "CN:zh-Hans",
+   "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
+  },
+  {
+   "label": "繁體中文 (TW)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
+  },
+  {
+   "label": "繁體中文 (HK)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
+  },
+  {
+   "label": "繁體中文 (SG)",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "SG",
+   "ceid": "SG:zh-Hans",
+   "query": "原住民族 土地 OR 傳統領域 爭議 OR 原住民 狩獵 權利"
+  },
+  {
+   "label": "한국어",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "query": "원주민 토지 권리 OR 선주민 인권"
+  },
+  {
+   "label": "Kiswahili (KE)",
+   "lang": "sw",
+   "standing": "press",
+   "hl": "sw",
+   "gl": "KE",
+   "ceid": "KE:sw",
+   "query": "jamii za asili ardhi OR wamaasai kufukuzwa OR haki za ardhi jamii"
+  },
+  {
+   "label": "Kiswahili (TZ)",
+   "lang": "sw",
+   "standing": "press",
+   "hl": "sw",
+   "gl": "TZ",
+   "ceid": "TZ:sw",
+   "query": "jamii za asili ardhi OR wamaasai kufukuzwa OR haki za ardhi jamii"
+  },
+  {
+   "label": "English (US) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (GB) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (IN) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (AU) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (Canada) (CA) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-CA",
+   "gl": "CA",
+   "ceid": "CA:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (NZ) (NZ) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NZ",
+   "gl": "NZ",
+   "ceid": "NZ:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (Philippines) (PH) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-PH",
+   "gl": "PH",
+   "ceid": "PH:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (Kenya) (KE) 1 · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-KE",
+   "gl": "KE",
+   "ceid": "KE:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (Nigeria) (NG) · defenders",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "query": "indigenous leader killed OR land defender murdered OR environmental defender threats",
+   "theme": "defenders"
+  },
+  {
+   "label": "Español (ES) 1 · defenders",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "líder indígena asesinado OR defensor ambiental amenazado OR defensora territorio asesinada",
+   "theme": "defenders"
+  },
+  {
+   "label": "Español (MX) 1 · defenders",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "líder indígena asesinado OR defensor ambiental amenazado OR defensora territorio asesinada",
+   "theme": "defenders"
+  },
+  {
+   "label": "Español (AR) 1 · defenders",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "líder indígena asesinado OR defensor ambiental amenazado OR defensora territorio asesinada",
+   "theme": "defenders"
+  },
+  {
+   "label": "Español (CO) 1 · defenders",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CO",
+   "ceid": "CO:es-419",
+   "query": "líder indígena asesinado OR defensor ambiental amenazado OR defensora territorio asesinada",
+   "theme": "defenders"
+  },
+  {
+   "label": "Español (Perú) (PE) 1 · defenders",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "PE",
+   "ceid": "PE:es-419",
+   "query": "líder indígena asesinado OR defensor ambiental amenazado OR defensora territorio asesinada",
+   "theme": "defenders"
+  },
+  {
+   "label": "Español (Chile) (CL) · defenders",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CL",
+   "ceid": "CL:es-419",
+   "query": "líder indígena asesinado OR defensor ambiental amenazado OR defensora territorio asesinada",
+   "theme": "defenders"
+  },
+  {
+   "label": "Português (BR) 1 · defenders",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "query": "liderança indígena assassinada OR defensor ambiental ameaçado OR morte de indigenista",
+   "theme": "defenders"
+  },
+  {
+   "label": "Português (PT) 1 · defenders",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "query": "liderança indígena assassinada OR defensor ambiental ameaçado OR morte de indigenista",
+   "theme": "defenders"
+  },
+  {
+   "label": "Português (AO) 1 · defenders",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "AO",
+   "ceid": "AO:pt-150",
+   "query": "liderança indígena assassinada OR defensor ambiental ameaçado OR morte de indigenista",
+   "theme": "defenders"
+  },
+  {
+   "label": "Français (FR) 1 · defenders",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "query": "leader autochtone tué OR défenseur de l'environnement assassiné OR menaces défenseurs",
+   "theme": "defenders"
+  },
+  {
+   "label": "Français (BE) 1 · defenders",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "BE",
+   "ceid": "BE:fr",
+   "query": "leader autochtone tué OR défenseur de l'environnement assassiné OR menaces défenseurs",
+   "theme": "defenders"
+  },
+  {
+   "label": "Français (CA) 1 · defenders",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "query": "leader autochtone tué OR défenseur de l'environnement assassiné OR menaces défenseurs",
+   "theme": "defenders"
+  },
+  {
+   "label": "Français (SN) 1 · defenders",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "SN",
+   "ceid": "SN:fr",
+   "query": "leader autochtone tué OR défenseur de l'environnement assassiné OR menaces défenseurs",
+   "theme": "defenders"
+  },
+  {
+   "label": "Deutsch (DE) · defenders",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "query": "indigener Anführer getötet OR Umweltschützer ermordet OR Bedrohung Landrechtsaktivisten",
+   "theme": "defenders"
+  },
+  {
+   "label": "Deutsch (AT) · defenders",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "AT",
+   "ceid": "AT:de",
+   "query": "indigener Anführer getötet OR Umweltschützer ermordet OR Bedrohung Landrechtsaktivisten",
+   "theme": "defenders"
+  },
+  {
+   "label": "Deutsch (CH) · defenders",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "CH",
+   "ceid": "CH:de",
+   "query": "indigener Anführer getötet OR Umweltschützer ermordet OR Bedrohung Landrechtsaktivisten",
+   "theme": "defenders"
+  },
+  {
+   "label": "Italiano (IT) · defenders",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it",
+   "query": "leader indigeno ucciso OR difensore ambientale minacciato",
+   "theme": "defenders"
+  },
+  {
+   "label": "Italiano (CH) · defenders",
+   "lang": "it",
+   "standing": "press",
+   "hl": "it",
+   "gl": "CH",
+   "ceid": "CH:it",
+   "query": "leader indigeno ucciso OR difensore ambientale minacciato",
+   "theme": "defenders"
+  },
+  {
+   "label": "Nederlands (NL) · defenders",
+   "lang": "nl",
+   "standing": "press",
+   "hl": "nl",
+   "gl": "NL",
+   "ceid": "NL:nl",
+   "query": "inheemse leider gedood OR milieuactivist vermoord bedreigd",
+   "theme": "defenders"
+  },
+  {
+   "label": "Nederlands (BE) · defenders",
+   "lang": "nl",
+   "standing": "press",
+   "hl": "nl",
+   "gl": "BE",
+   "ceid": "BE:nl",
+   "query": "inheemse leider gedood OR milieuactivist vermoord bedreigd",
+   "theme": "defenders"
+  },
+  {
+   "label": "Русский (RU) · defenders",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "query": "убийство лидера коренного народа OR защитник природы убит угрозы",
+   "theme": "defenders"
+  },
+  {
+   "label": "Русский (KZ) · defenders",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "KZ",
+   "ceid": "KZ:ru",
+   "query": "убийство лидера коренного народа OR защитник природы убит угрозы",
+   "theme": "defenders"
+  },
+  {
+   "label": "Русский (BY) · defenders",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "BY",
+   "ceid": "BY:ru",
+   "query": "убийство лидера коренного народа OR защитник природы убит угрозы",
+   "theme": "defenders"
+  },
+  {
+   "label": "Українська · defenders",
+   "lang": "uk",
+   "standing": "press",
+   "hl": "uk",
+   "gl": "UA",
+   "ceid": "UA:uk",
+   "query": "вбивство активіста OR захисник довкілля погрози корінні",
+   "theme": "defenders"
+  },
+  {
+   "label": "Polski · defenders",
+   "lang": "pl",
+   "standing": "press",
+   "hl": "pl",
+   "gl": "PL",
+   "ceid": "PL:pl",
+   "query": "zabójstwo lidera rdzennego OR obrońca środowiska zagrożenia",
+   "theme": "defenders"
+  },
+  {
+   "label": "Türkçe · defenders",
+   "lang": "tr",
+   "standing": "press",
+   "hl": "tr",
+   "gl": "TR",
+   "ceid": "TR:tr",
+   "query": "yerli lider öldürüldü OR çevre savunucusu tehdit",
+   "theme": "defenders"
+  },
+  {
+   "label": "Bahasa Indonesia 1 · defenders",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "query": "tokoh adat dibunuh OR pembela lingkungan diancam kriminalisasi",
+   "theme": "defenders"
+  },
+  {
+   "label": "Tiếng Việt · defenders",
+   "lang": "vi",
+   "standing": "press",
+   "hl": "vi",
+   "gl": "VN",
+   "ceid": "VN:vi",
+   "query": "thủ lĩnh bản địa bị giết OR người bảo vệ môi trường bị đe dọa",
+   "theme": "defenders"
+  },
+  {
+   "label": "ไทย · defenders",
+   "lang": "th",
+   "standing": "press",
+   "hl": "th",
+   "gl": "TH",
+   "ceid": "TH:th",
+   "query": "ผู้นำชนเผ่าถูกฆ่า OR นักปกป้องสิทธิ ถูกคุกคาม",
+   "theme": "defenders"
+  },
+  {
+   "label": "日本語 · defenders",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "query": "先住民 指導者 殺害 OR 環境活動家 脅迫",
+   "theme": "defenders"
+  },
+  {
+   "label": "한국어 · defenders",
+   "lang": "ko",
+   "standing": "press",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko",
+   "query": "원주민 지도자 살해 OR 환경 운동가 위협",
+   "theme": "defenders"
+  },
+  {
+   "label": "简体中文 (CN) · defenders",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "CN",
+   "ceid": "CN:zh-Hans",
+   "query": "原住民 领袖 遇害 OR 环保人士 威胁 恐吓",
+   "theme": "defenders"
+  },
+  {
+   "label": "繁體中文 (TW) · defenders",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "query": "原住民 領袖 遇害 OR 環保人士 威脅 恐嚇",
+   "theme": "defenders"
+  },
+  {
+   "label": "繁體中文 (HK) · defenders",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "query": "原住民 領袖 遇害 OR 環保人士 威脅 恐嚇",
+   "theme": "defenders"
+  },
+  {
+   "label": "简体中文 (SG) · defenders",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "SG",
+   "ceid": "SG:zh-Hans",
+   "query": "原住民 领袖 遇害 OR 环保人士 威胁 恐吓",
+   "theme": "defenders"
+  },
+  {
+   "label": "हिन्दी 1 · defenders",
+   "lang": "hi",
+   "standing": "press",
+   "hl": "hi",
+   "gl": "IN",
+   "ceid": "IN:hi",
+   "query": "आदिवासी नेता हत्या OR पर्यावरण कार्यकर्ता धमकी",
+   "theme": "defenders"
+  },
+  {
+   "label": "বাংলা (BD) · defenders",
+   "lang": "bn",
+   "standing": "press",
+   "hl": "bn",
+   "gl": "BD",
+   "ceid": "BD:bn",
+   "query": "আদিবাসী নেতা হত্যা OR পরিবেশ কর্মী হুমকি",
+   "theme": "defenders"
+  },
+  {
+   "label": "বাংলা (IN) · defenders",
+   "lang": "bn",
+   "standing": "press",
+   "hl": "bn",
+   "gl": "IN",
+   "ceid": "IN:bn",
+   "query": "আদিবাসী নেতা হত্যা OR পরিবেশ কর্মী হুমকি",
+   "theme": "defenders"
+  },
+  {
+   "label": "العربية (EG) · defenders",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar",
+   "query": "مقتل زعيم من السكان الأصليين OR تهديد المدافعين عن البيئة",
+   "theme": "defenders"
+  },
+  {
+   "label": "العربية (SA) · defenders",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "SA",
+   "ceid": "SA:ar",
+   "query": "مقتل زعيم من السكان الأصليين OR تهديد المدافعين عن البيئة",
+   "theme": "defenders"
+  },
+  {
+   "label": "العربية (AE) · defenders",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "AE",
+   "ceid": "AE:ar",
+   "query": "مقتل زعيم من السكان الأصليين OR تهديد المدافعين عن البيئة",
+   "theme": "defenders"
+  },
+  {
+   "label": "العربية (MA) · defenders",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "MA",
+   "ceid": "MA:ar",
+   "query": "مقتل زعيم من السكان الأصليين OR تهديد المدافعين عن البيئة",
+   "theme": "defenders"
+  },
+  {
+   "label": "فارسی · defenders",
+   "lang": "fa",
+   "standing": "press",
+   "hl": "fa",
+   "gl": "IR",
+   "ceid": "IR:fa",
+   "query": "قتل رهبر بومی OR تهدید مدافعان محیط زیست",
+   "theme": "defenders"
+  },
+  {
+   "label": "Ελληνικά · defenders",
+   "lang": "el",
+   "standing": "press",
+   "hl": "el",
+   "gl": "GR",
+   "ceid": "GR:el",
+   "query": "δολοφονία ηγέτη αυτοχθόνων OR απειλές υπερασπιστές περιβάλλοντος",
+   "theme": "defenders"
+  },
+  {
+   "label": "Svenska · defenders",
+   "lang": "sv",
+   "standing": "press",
+   "hl": "sv",
+   "gl": "SE",
+   "ceid": "SE:sv",
+   "query": "urfolksledare dödad OR miljöaktivist mördad hot",
+   "theme": "defenders"
+  },
+  {
+   "label": "Kiswahili (KE) · defenders",
+   "lang": "sw",
+   "standing": "press",
+   "hl": "sw",
+   "gl": "KE",
+   "ceid": "KE:sw",
+   "query": "kiongozi wa jamii ya asili kuuawa OR mtetezi wa mazingira kutishiwa",
+   "theme": "defenders"
+  },
+  {
+   "label": "Kiswahili (TZ) · defenders",
+   "lang": "sw",
+   "standing": "press",
+   "hl": "sw",
+   "gl": "TZ",
+   "ceid": "TZ:sw",
+   "query": "kiongozi wa jamii ya asili kuuawa OR mtetezi wa mazingira kutishiwa",
+   "theme": "defenders"
+  },
+  {
+   "label": "English (US) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (GB) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (IN) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (AU) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (Canada) (CA) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-CA",
+   "gl": "CA",
+   "ceid": "CA:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (NZ) (NZ) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NZ",
+   "gl": "NZ",
+   "ceid": "NZ:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (Philippines) (PH) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-PH",
+   "gl": "PH",
+   "ceid": "PH:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (Kenya) (KE) 1 · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-KE",
+   "gl": "KE",
+   "ceid": "KE:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "English (Nigeria) (NG) · culture",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "query": "indigenous language revival OR ancestral remains repatriation OR sacred site destroyed",
+   "theme": "culture"
+  },
+  {
+   "label": "Español (ES) 1 · culture",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "revitalización lengua indígena OR restitución de restos ancestrales OR sitio sagrado destruido",
+   "theme": "culture"
+  },
+  {
+   "label": "Español (MX) 1 · culture",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "revitalización lengua indígena OR restitución de restos ancestrales OR sitio sagrado destruido",
+   "theme": "culture"
+  },
+  {
+   "label": "Español (AR) 1 · culture",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "revitalización lengua indígena OR restitución de restos ancestrales OR sitio sagrado destruido",
+   "theme": "culture"
+  },
+  {
+   "label": "Español (CO) 1 · culture",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CO",
+   "ceid": "CO:es-419",
+   "query": "revitalización lengua indígena OR restitución de restos ancestrales OR sitio sagrado destruido",
+   "theme": "culture"
+  },
+  {
+   "label": "Español (Perú) (PE) 1 · culture",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "PE",
+   "ceid": "PE:es-419",
+   "query": "revitalización lengua indígena OR restitución de restos ancestrales OR sitio sagrado destruido",
+   "theme": "culture"
+  },
+  {
+   "label": "Español (Chile) (CL) · culture",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CL",
+   "ceid": "CL:es-419",
+   "query": "revitalización lengua indígena OR restitución de restos ancestrales OR sitio sagrado destruido",
+   "theme": "culture"
+  },
+  {
+   "label": "Português (BR) 1 · culture",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "query": "revitalização língua indígena OR repatriação de restos ancestrais OR sítio sagrado destruído",
+   "theme": "culture"
+  },
+  {
+   "label": "Português (PT) 1 · culture",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "query": "revitalização língua indígena OR repatriação de restos ancestrais OR sítio sagrado destruído",
+   "theme": "culture"
+  },
+  {
+   "label": "Português (AO) 1 · culture",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "AO",
+   "ceid": "AO:pt-150",
+   "query": "revitalização língua indígena OR repatriação de restos ancestrais OR sítio sagrado destruído",
+   "theme": "culture"
+  },
+  {
+   "label": "Français (FR) 1 · culture",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "query": "revitalisation langue autochtone OR restitution de restes ancestraux OR site sacré détruit",
+   "theme": "culture"
+  },
+  {
+   "label": "Français (BE) 1 · culture",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "BE",
+   "ceid": "BE:fr",
+   "query": "revitalisation langue autochtone OR restitution de restes ancestraux OR site sacré détruit",
+   "theme": "culture"
+  },
+  {
+   "label": "Français (CA) 1 · culture",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "query": "revitalisation langue autochtone OR restitution de restes ancestraux OR site sacré détruit",
+   "theme": "culture"
+  },
+  {
+   "label": "Français (SN) 1 · culture",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "SN",
+   "ceid": "SN:fr",
+   "query": "revitalisation langue autochtone OR restitution de restes ancestraux OR site sacré détruit",
+   "theme": "culture"
+  },
+  {
+   "label": "Deutsch (DE) · culture",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "query": "indigene Sprache Wiederbelebung OR Rückgabe von Gebeinen OR heilige Stätte zerstört",
+   "theme": "culture"
+  },
+  {
+   "label": "Deutsch (AT) · culture",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "AT",
+   "ceid": "AT:de",
+   "query": "indigene Sprache Wiederbelebung OR Rückgabe von Gebeinen OR heilige Stätte zerstört",
+   "theme": "culture"
+  },
+  {
+   "label": "Deutsch (CH) · culture",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "CH",
+   "ceid": "CH:de",
+   "query": "indigene Sprache Wiederbelebung OR Rückgabe von Gebeinen OR heilige Stätte zerstört",
+   "theme": "culture"
+  },
+  {
+   "label": "Русский (RU) · culture",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "query": "возрождение языка коренного народа OR возвращение останков OR священное место",
+   "theme": "culture"
+  },
+  {
+   "label": "Русский (KZ) · culture",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "KZ",
+   "ceid": "KZ:ru",
+   "query": "возрождение языка коренного народа OR возвращение останков OR священное место",
+   "theme": "culture"
+  },
+  {
+   "label": "Русский (BY) · culture",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "BY",
+   "ceid": "BY:ru",
+   "query": "возрождение языка коренного народа OR возвращение останков OR священное место",
+   "theme": "culture"
+  },
+  {
+   "label": "Bahasa Indonesia 1 · culture",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "query": "kebangkitan bahasa adat OR pemulangan leluhur OR situs sakral dirusak",
+   "theme": "culture"
+  },
+  {
+   "label": "日本語 · culture",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "query": "先住民 言語 復興 OR 遺骨返還 OR 聖地 破壊",
+   "theme": "culture"
+  },
+  {
+   "label": "简体中文 (CN) · culture",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "CN",
+   "ceid": "CN:zh-Hans",
+   "query": "原住民 语言 复兴 OR 遗骨 归还 OR 圣地 破坏",
+   "theme": "culture"
+  },
+  {
+   "label": "繁體中文 (TW) · culture",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "query": "原住民 語言 復興 OR 遺骨 歸還 OR 聖地 破壞",
+   "theme": "culture"
+  },
+  {
+   "label": "繁體中文 (HK) · culture",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-HK",
+   "gl": "HK",
+   "ceid": "HK:zh-Hant",
+   "query": "原住民 語言 復興 OR 遺骨 歸還 OR 聖地 破壞",
+   "theme": "culture"
+  },
+  {
+   "label": "简体中文 (SG) · culture",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-CN",
+   "gl": "SG",
+   "ceid": "SG:zh-Hans",
+   "query": "原住民 语言 复兴 OR 遗骨 归还 OR 圣地 破坏",
+   "theme": "culture"
+  },
+  {
+   "label": "العربية (EG) · culture",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar",
+   "query": "إحياء لغة السكان الأصليين OR إعادة رفات OR موقع مقدس",
+   "theme": "culture"
+  },
+  {
+   "label": "العربية (SA) · culture",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "SA",
+   "ceid": "SA:ar",
+   "query": "إحياء لغة السكان الأصليين OR إعادة رفات OR موقع مقدس",
+   "theme": "culture"
+  },
+  {
+   "label": "العربية (AE) · culture",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "AE",
+   "ceid": "AE:ar",
+   "query": "إحياء لغة السكان الأصليين OR إعادة رفات OR موقع مقدس",
+   "theme": "culture"
+  },
+  {
+   "label": "العربية (MA) · culture",
+   "lang": "ar",
+   "standing": "press",
+   "hl": "ar",
+   "gl": "MA",
+   "ceid": "MA:ar",
+   "query": "إحياء لغة السكان الأصليين OR إعادة رفات OR موقع مقدس",
+   "theme": "culture"
+  },
+  {
+   "label": "हिन्दी 1 · culture",
+   "lang": "hi",
+   "standing": "press",
+   "hl": "hi",
+   "gl": "IN",
+   "ceid": "IN:hi",
+   "query": "आदिवासी भाषा पुनर्जीवन OR पवित्र स्थल विनाश",
+   "theme": "culture"
+  },
+  {
+   "label": "Ελληνικά · culture",
+   "lang": "el",
+   "standing": "press",
+   "hl": "el",
+   "gl": "GR",
+   "ceid": "GR:el",
+   "query": "αναβίωση γλώσσας αυτοχθόνων OR ιερός τόπος καταστροφή",
+   "theme": "culture"
+  },
+  {
+   "label": "English (US) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (GB) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (IN) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (AU) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (Canada) (CA) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-CA",
+   "gl": "CA",
+   "ceid": "CA:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (NZ) (NZ) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NZ",
+   "gl": "NZ",
+   "ceid": "NZ:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (Philippines) (PH) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-PH",
+   "gl": "PH",
+   "ceid": "PH:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (Kenya) (KE) 1 · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-KE",
+   "gl": "KE",
+   "ceid": "KE:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (Nigeria) (NG) · isolation",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en",
+   "query": "uncontacted tribe OR peoples in voluntary isolation loggers miners",
+   "theme": "isolation"
+  },
+  {
+   "label": "Español (ES) 1 · isolation",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "query": "pueblos en aislamiento voluntario OR indígenas no contactados madereros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Español (MX) 1 · isolation",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419",
+   "query": "pueblos en aislamiento voluntario OR indígenas no contactados madereros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Español (AR) 1 · isolation",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419",
+   "query": "pueblos en aislamiento voluntario OR indígenas no contactados madereros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Español (CO) 1 · isolation",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CO",
+   "ceid": "CO:es-419",
+   "query": "pueblos en aislamiento voluntario OR indígenas no contactados madereros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Español (Perú) (PE) 1 · isolation",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "PE",
+   "ceid": "PE:es-419",
+   "query": "pueblos en aislamiento voluntario OR indígenas no contactados madereros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Español (Chile) (CL) · isolation",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es-419",
+   "gl": "CL",
+   "ceid": "CL:es-419",
+   "query": "pueblos en aislamiento voluntario OR indígenas no contactados madereros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Português (BR) 1 · isolation",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "query": "povos indígenas isolados OR não contatados garimpeiros madeireiros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Português (PT) 1 · isolation",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "PT",
+   "ceid": "PT:pt-150",
+   "query": "povos indígenas isolados OR não contatados garimpeiros madeireiros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Português (AO) 1 · isolation",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "AO",
+   "ceid": "AO:pt-150",
+   "query": "povos indígenas isolados OR não contatados garimpeiros madeireiros",
+   "theme": "isolation"
+  },
+  {
+   "label": "Français (FR) 1 · isolation",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "query": "peuples isolés non contactés OR autochtones isolement volontaire",
+   "theme": "isolation"
+  },
+  {
+   "label": "Français (BE) 1 · isolation",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "BE",
+   "ceid": "BE:fr",
+   "query": "peuples isolés non contactés OR autochtones isolement volontaire",
+   "theme": "isolation"
+  },
+  {
+   "label": "Français (CA) 1 · isolation",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "CA",
+   "ceid": "CA:fr",
+   "query": "peuples isolés non contactés OR autochtones isolement volontaire",
+   "theme": "isolation"
+  },
+  {
+   "label": "Français (SN) 1 · isolation",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "SN",
+   "ceid": "SN:fr",
+   "query": "peuples isolés non contactés OR autochtones isolement volontaire",
+   "theme": "isolation"
+  },
+  {
+   "label": "Bahasa Indonesia 1 · isolation",
+   "lang": "id",
+   "standing": "press",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id",
+   "query": "suku terasing OR masyarakat adat terisolasi",
+   "theme": "isolation"
+  },
+  {
+   "label": "Русский (RU) · isolation",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "query": "изолированные племена коренные народы",
+   "theme": "isolation"
+  },
+  {
+   "label": "Русский (KZ) · isolation",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "KZ",
+   "ceid": "KZ:ru",
+   "query": "изолированные племена коренные народы",
+   "theme": "isolation"
+  },
+  {
+   "label": "Русский (BY) · isolation",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "BY",
+   "ceid": "BY:ru",
+   "query": "изолированные племена коренные народы",
+   "theme": "isolation"
+  },
+  {
+   "label": "English (US) · health",
+   "lang": "en",
+   "standing": "press",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "theme": "health",
+   "query": "Indigenous health gap report OR forced sterilisation Indigenous women OR clean water advisory First Nations"
+  },
+  {
+   "label": "Español · health",
+   "lang": "es",
+   "standing": "press",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es",
+   "theme": "health",
+   "query": "brecha de salud indígena informe OR esterilización forzada mujeres indígenas OR agua potable comunidades indígenas"
+  },
+  {
+   "label": "Português (BR) · health",
+   "lang": "pt",
+   "standing": "press",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419",
+   "theme": "health",
+   "query": "desigualdade de saúde indígena relatório OR esterilização forçada mulheres indígenas OR água potável comunidades indígenas"
+  },
+  {
+   "label": "Français · health",
+   "lang": "fr",
+   "standing": "press",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr",
+   "theme": "health",
+   "query": "écart de santé autochtone rapport OR stérilisation forcée femmes autochtones OR eau potable communautés autochtones"
+  },
+  {
+   "label": "Deutsch · health",
+   "lang": "de",
+   "standing": "press",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de",
+   "theme": "health",
+   "query": "Gesundheitslücke indigene Bevölkerung Bericht OR Zwangssterilisation indigener Frauen"
+  },
+  {
+   "label": "Русский · health",
+   "lang": "ru",
+   "standing": "press",
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru",
+   "theme": "health",
+   "query": "разрыв в здоровье коренных народов доклад"
+  },
+  {
+   "label": "日本語 · health",
+   "lang": "ja",
+   "standing": "press",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja",
+   "theme": "health",
+   "query": "先住民 健康格差 報告 OR 先住民 女性 強制不妊"
+  },
+  {
+   "label": "中文 · health",
+   "lang": "zh",
+   "standing": "press",
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant",
+   "theme": "health",
+   "query": "原住民 健康 差距 報告 OR 原住民 婦女 強制絕育"
+  }
+ ],
+ "events": [
+  {
+   "label": "Courts & rulings",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "indigenous land ruling court OR native title determination OR ancestral land verdict OR inter-american court indigenous"
+  },
+  {
+   "label": "Titling & recognition",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "indigenous land titled OR territory demarcated OR customary land recognised OR land returned to tribe OR co-management agreement"
+  },
+  {
+   "label": "Extraction on territory",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "mining concession indigenous territory OR oil block indigenous OR logging indigenous land OR dam indigenous displacement"
+  },
+  {
+   "label": "Defenders & criminalisation",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "land defender killed OR indigenous leader murdered OR criminalisation indigenous protest OR Global Witness defenders report"
+  },
+  {
+   "label": "Uncontacted & isolated",
+   "lang": "en",
+   "standing": "indigenous",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "uncontacted tribe OR isolated peoples territory OR first contact indigenous OR loggers uncontacted"
+  },
+  {
+   "label": "Consent & consultation",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "free prior and informed consent OR ILO 169 consultation OR consulta previa fallo OR consent violated indigenous project"
+  },
+  {
+   "label": "Conservation evictions",
+   "lang": "en",
+   "standing": "field",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "conservation eviction indigenous OR fortress conservation park eviction OR carbon offset project indigenous land OR 30x30 indigenous rights"
+  },
+  {
+   "label": "Environment & health",
+   "lang": "en",
+   "standing": "research",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "mercury contamination indigenous OR oil spill indigenous community OR water contamination reservation OR climate relocation indigenous village"
+  },
+  {
+   "label": "Heritage & repatriation",
+   "lang": "en",
+   "standing": "indigenous",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "sacred site destroyed OR repatriation of remains indigenous OR language revitalisation funding OR heritage act indigenous"
+  },
+  {
+   "label": "Settler-state policy",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "truth and reconciliation indigenous OR treaty negotiation government OR indigenous voice parliament OR self-determination agreement"
+  },
+  {
+   "label": "Survival & IWGIA (site)",
+   "lang": "en",
+   "standing": "indigenous",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "site:survivalinternational.org OR site:iwgia.org OR site:culturalsurvival.org land OR territory OR eviction"
+  },
+  {
+   "label": "UN & rights bodies (site)",
+   "lang": "en",
+   "standing": "official",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en",
+   "query": "site:ohchr.org OR site:un.org OR site:iachr.org indigenous peoples rights"
+  }
+ ]
 }
